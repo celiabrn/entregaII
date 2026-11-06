@@ -1,0 +1,44 @@
+SITIO WEB PERSONAL
+==================
+
+DESCRIPCIÓN DEL PROYECTO
+---------------------------
+El proyecto consiste en el desarrollo de un sitio web personal compuesto por varias
+páginas HTML.
+
+El sitio está formado por cinco páginas principales y tiene la siguiente estructura:
+
+root/
+├── index.html          Página de inicio
+├── sobre-mi.html       Información personal
+├── aficiones.html      Aficiones e intereses
+├── viajes.html         Viajes realizados
+├── musica.html         Música y bandas
+├── css/          		 Hojas de estilos
+│   ├── estilos.css
+├── multimedia/ 		Archivos multimedia del proyecto
+│   ├── audio/
+│   │   └── [audios utilizados en el sitio]
+│   ├── img/
+│   │   └── [imágenes utilizadas en el sitio]
+│   ├── video/
+│   │   └── [vídeos utilizados en el sitio]
+
+TECNOLOGÍAS UTILIZADAS
+-------------------------
+Para desarrollar el sitio he utilizado únicamente HTML5 y CSS3, ya que consideré que eran suficientes para cumplir los requisitos del trabajo. Además, introducir frameworks y otras herramientas con las que no tenga experiencia previa únicamente complicaría el desarrollo.
+
+HTML5 se utiliza para definir la estructura y el contenido de las páginas, mientras que CSS3 se utiliza para definir la presentación visual del sitio.
+
+CONTENIDO DE LAS PÁGINAS
+---------------------------
+La página index.html funciona como portada o página principal del sitio y sirve como
+punto de entrada para la navegación.
+
+La página sobre-mi.html contiene información de mi vida tanto personal como laboral.
+
+La página aficiones.html presenta algunas de mis aficiones, como las películas, los animales o la botánica e incluye archivos de vídeo además de imágenes.
+
+La página viajes.html está dedicada a algunos de los viajes que he realizado.
+
+La página musica.html contiene información relacionada con algunas de mis bandas y canciones favoritas, así como archivos de audio.
