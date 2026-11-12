@@ -9,6 +9,12 @@ body {
     padding: 0;
     background-color: #faf9f6;
     color: #2d3748;
+<<<<<<< HEAD
+=======
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+>>>>>>> b8c4cb0 (Primeros cambios)
 }
 
 h1, h2, h3 {
@@ -19,6 +25,7 @@ h1, h2, h3 {
 
 /* ================== CABECERA Y NAVEGACIÓN ================== */
 body > header {
+<<<<<<< HEAD
     background-color: #1a365d;
     color: #ffffff;
     padding: 1.5rem;
@@ -27,22 +34,45 @@ body > header {
     align-items: center;
     gap: 1.5rem;
     border-bottom: 0.375rem solid #2b6cb0;
+=======
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #1a365d;
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 0.375rem solid #2b6cb0;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+>>>>>>> b8c4cb0 (Primeros cambios)
 }
 
 body > header h1 {
     color: #ffffff;
     margin: 0;
+<<<<<<< HEAD
     font-size: 2.25rem;
     text-align: center;
 }
 
 nav {
+=======
+    font-size: 2rem;
+    text-align: center;
+}
+
+body > header > nav {
+>>>>>>> b8c4cb0 (Primeros cambios)
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
 }
 
+<<<<<<< HEAD
 nav a {
     color: #ffffff;
     text-decoration: none;
@@ -59,16 +89,91 @@ nav a[aria-current="page"] {
     background-color: #ffffff;
     color: #1a365d;
     outline: none;
+=======
+body > header > nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.6rem 1.15rem;
+    border-radius: 2rem;
+    border: 0.125rem solid transparent;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body > header > nav a:hover,
+body > header > nav a[aria-current="page"] {
+    background-color: #ffffff;
+    color: #1a365d;
+}
+
+body > header > nav a:focus-visible {
+    outline: 0.15rem solid #ffffff;
+    outline-offset: 0.15rem;
+}
+
+/* ================== MIGAS DE PAN ================== */
+main > nav {
+    width: 100%;
+    margin-bottom: -2.5rem;
+    font-size: 0.925rem;
+}
+
+main > nav ol {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4a5568;
+}
+
+main > nav li:not(:last-child)::after {
+    content: "/";
+    margin-left: 0.5rem;
+    color: #a0aec0;
+}
+
+main > nav a {
+    color: #2b6cb0;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+main > nav a:hover {
+    text-decoration: underline;
+    color: #1a365d;
+}
+
+main > nav a:focus-visible {
+    outline: 0.125rem solid #2b6cb0;
+    outline-offset: 0.15rem;
+    border-radius: 0.2rem;
+}
+
+main > nav li[aria-current="page"] {
+    font-weight: 600;
+    color: #1a365d;
+>>>>>>> b8c4cb0 (Primeros cambios)
 }
 
 /* ================== CONTENIDO GENERAL ================== */
 main {
+<<<<<<< HEAD
+=======
+    width: 100%;
+>>>>>>> b8c4cb0 (Primeros cambios)
     max-width: 75rem;
     margin: 0 auto;
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 4rem;
+<<<<<<< HEAD
+=======
+    flex: 1;
+>>>>>>> b8c4cb0 (Primeros cambios)
 }
 
 main > section:not(:first-of-type) > h2 {
@@ -153,7 +258,11 @@ article a:hover {
     transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
 main > section:first-child > article a {
+=======
+main > section:first-of-type > article a {
+>>>>>>> b8c4cb0 (Primeros cambios)
     margin-top: 1.5rem;
 }
 
@@ -176,7 +285,11 @@ article video {
 }
 
 /* ================== SECCIÓN 1: INTRODUCCIÓN (INICIO) ================== */
+<<<<<<< HEAD
 main > section:first-child {
+=======
+main > section:first-of-type {
+>>>>>>> b8c4cb0 (Primeros cambios)
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -187,7 +300,11 @@ main > section:first-child {
     gap: 1.5rem; 
 }
 
+<<<<<<< HEAD
 main > section:first-child > p:first-of-type {
+=======
+main > section:first-of-type > p:first-of-type {
+>>>>>>> b8c4cb0 (Primeros cambios)
     text-transform: uppercase;
     font-size: 0.875rem;
     font-weight: bold;
@@ -196,19 +313,31 @@ main > section:first-child > p:first-of-type {
     margin-bottom: -1rem;
 }
 
+<<<<<<< HEAD
 main > section:first-child > h2 {
+=======
+main > section:first-of-type > h2 {
+>>>>>>> b8c4cb0 (Primeros cambios)
     font-size: 2.5rem;
     line-height: 1.2;
     margin: 0;
 }
 
+<<<<<<< HEAD
 main > section:first-child > h2 span {
+=======
+main > section:first-of-type > h2 span {
+>>>>>>> b8c4cb0 (Primeros cambios)
     display: block;
     color: #2b6cb0;
 }
 
 /* --- Botón del perfil --- */
+<<<<<<< HEAD
 main > section:first-child > a {
+=======
+main > section:first-of-type > a {
+>>>>>>> b8c4cb0 (Primeros cambios)
     display: inline-block;
     background-color: #2b6cb0;
     color: #ffffff;
@@ -221,13 +350,21 @@ main > section:first-child > a {
     justify-self: start;
 }
 
+<<<<<<< HEAD
 main > section:first-child > a:hover {
+=======
+main > section:first-of-type > a:hover {
+>>>>>>> b8c4cb0 (Primeros cambios)
     background-color: #1a365d;
     transform: translateY(-2px);
 }
 
 /* --- Imagen de perfil circular --- */
+<<<<<<< HEAD
 main > section:first-child > img {
+=======
+main > section:first-of-type > img {
+>>>>>>> b8c4cb0 (Primeros cambios)
     width: 100%;
     max-width: 16rem;
     height: auto;
@@ -278,7 +415,11 @@ main > section:nth-of-type(2):not(:has(figure)) > article p {
     flex-grow: 1; 
 }
 
+<<<<<<< HEAD
 main > section:first-child > article {
+=======
+main > section:first-of-type > article {
+>>>>>>> b8c4cb0 (Primeros cambios)
     background-color: transparent;
     padding: 0;
     border: none;
@@ -545,11 +686,78 @@ main > section:nth-of-type(1):has(audio) > article > audio {
     margin-top: 0.5rem;
 }
 
+<<<<<<< HEAD
+=======
+/* ================== PIE DE PÁGINA Y MAPA DEL SITIO ================== */
+body > footer {
+    background-color: #1a365d;
+    color: #ffffff;
+    border-top: 0.375rem solid #2b6cb0;
+    margin-top: 3rem;
+    padding: 2.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+body > footer h2 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+body > footer p {
+    color: #e2e8f0;
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+body > footer a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+    transition: opacity 0.2s ease;
+}
+
+body > footer a:hover {
+    opacity: 0.85;
+}
+
+body > footer a:focus-visible {
+    outline: 0.125rem solid #ffffff;
+    outline-offset: 0.2rem;
+    border-radius: 0.2rem;
+}
+
+body > footer nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+}
+
+body > footer nav a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+body > footer nav a:hover,
+body > footer nav a[aria-current="page"] {
+    text-decoration: underline;
+}
+
+>>>>>>> b8c4cb0 (Primeros cambios)
 @media (min-width: 48rem) {
     body > header {
         flex-direction: row;
         justify-content: space-between;
+<<<<<<< HEAD
         padding: 1.5rem 3rem;
+=======
+        padding: 1rem 3rem;
+>>>>>>> b8c4cb0 (Primeros cambios)
     }
     
     body > header h1 {
@@ -593,7 +801,11 @@ main > section:nth-of-type(1):has(audio) > article > audio {
     }
 
     /* INICIO */
+<<<<<<< HEAD
     main > section:first-child {
+=======
+    main > section:first-of-type {
+>>>>>>> b8c4cb0 (Primeros cambios)
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: auto auto auto 1fr;
@@ -601,7 +813,11 @@ main > section:nth-of-type(1):has(audio) > article > audio {
         padding: 4rem; 
     }
 
+<<<<<<< HEAD
     main > section:first-child > img {
+=======
+    main > section:first-of-type > img {
+>>>>>>> b8c4cb0 (Primeros cambios)
         grid-column: 1 / 2;
         grid-row: 1 / -1; 
         width: 16rem;
@@ -614,11 +830,19 @@ main > section:nth-of-type(1):has(audio) > article > audio {
         margin: 0; 
     }
 
+<<<<<<< HEAD
     main > section:first-child > *:not(img) {
         grid-column: 2 / 3;
     }
 
     main > section:first-child > a {
+=======
+    main > section:first-of-type > *:not(img) {
+        grid-column: 2 / 3;
+    }
+
+    main > section:first-of-type > a {
+>>>>>>> b8c4cb0 (Primeros cambios)
         align-self: start; 
     }
 
@@ -656,6 +880,16 @@ main > section:nth-of-type(1):has(audio) > article > audio {
         max-width: 20rem; 
         margin-top: 1rem;
     }
+<<<<<<< HEAD
+=======
+
+    /* PIE DE PÁGINA */
+    body > footer {
+        grid-template-columns: 1fr auto;
+        align-items: start;
+        padding: 2.5rem 3rem;
+    }
+>>>>>>> b8c4cb0 (Primeros cambios)
 }
 
 @media (min-width: 60rem) {
@@ -687,7 +921,11 @@ main > section:nth-of-type(1):has(audio) > article > audio {
         margin-top: 0;      
     }
     
+<<<<<<< HEAD
     main > section:nth-of-type(1):has(video) > article> figure {
+=======
+    main > section:nth-of-type(1):has(video) > article > figure {
+>>>>>>> b8c4cb0 (Primeros cambios)
         grid-column: 2 / 3; 
         grid-row: 1 / 3;    
         display: grid;
