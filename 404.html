@@ -4,9 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Página no encontrada (Error 404)">
-        <title>Página no encontrada (404) | Mi página personal</title>
+        <title data-i18n="404.meta.title">Página no encontrada (404) | Mi página personal</title>
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            (function() {
+                const idiomaGuardado = localStorage.getItem('idioma_pref');
+                if (idiomaGuardado === 'en') {
+                    document.documentElement.classList.add('traduciendo');
+                }
+            })();
+        </script>
     </head>
     <body>
         <a href="#main-content" data-i18n="skip.link">Saltar al contenido principal</a>
@@ -32,18 +40,18 @@
         <main id="main-content">
             <nav aria-label="Migas de pan">
                 <ol>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li aria-current="page">Página no encontrada (404)</li>
+                    <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+                    <li aria-current="page" data-i18n="404.breadcrumb">Página no encontrada (404)</li>
                 </ol>
             </nav>
             <section>
-                <p>ERROR 404</p>
-                <h2>La página que buscas no está disponible</h2>
-                <p>
+                <p data-i18n="404.tag">ERROR 404</p>
+                <h2 data-i18n="404.title">La página que buscas no está disponible</h2>
+                <p data-i18n="404.desc">
                     Es posible que la dirección se haya escrito de forma incorrecta o que el enlace haya cambiado.
-                    Puedes volver a la página principal o consultar la guía de ayuda para encontrar lo que buscas.
+                    Puedes volver a la página principal o consultar la <a href="ayuda.html" title="Ir a la sección de ayuda y guía de navegación">guía de ayuda</a> para encontrar lo que buscas.
                 </p>
-                <a href="index.html">Volver al inicio</a>
+                <a href="index.html" data-i18n="404.btnHome">Volver al inicio</a>
             </section>
         </main>
         <footer>
@@ -51,8 +59,8 @@
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
                 <p data-i18n="footer.master">Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
                 <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
+                <p><span data-i18n="footer.lastMod">Última actualización:</span> <time datetime="2026-11-12" data-i18n="footer.date">12 de noviembre de 2026</time></p>
             </section>
-            <!-- Nueva sección de Redes Sociales -->
             <nav aria-label="Redes sociales y perfiles profesionales">
                 <h2 data-i18n="footer.social">Perfiles</h2>
                 <ul>
@@ -62,7 +70,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia">
+                        <a href="https://www.linkedin.com/in/celia-bobo-rodr%C3%ADguez-noriega-aa6213356/" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia">
                             <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
                         </a>
                     </li>             
@@ -80,5 +88,6 @@
                 </ul>
             </nav>
         </footer>
+        <script src="js/i18n.js"></script>
     </body>
 </html>

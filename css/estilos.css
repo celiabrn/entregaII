@@ -1,4 +1,6 @@
+/* ================== 1. VARIABLES GLOBALES (CUSTOM PROPERTIES) ================== */
 :root {
+    /* Paleta de colores centralizada */
     --bg-canvas: #f6f8fa;
     --bg-surface: #ffffff;
     --bg-subtle: #eef3f8;
@@ -11,14 +13,26 @@
     --text-secondary: #475569;
     --text-muted: #64748b;
     --border-hairline: #dce3ec;
-    --shadow-sm: 0 2px 6px rgba(16, 42, 67, 0.04), 0 1px 2px rgba(16, 42, 67, 0.06);
-    --shadow-md: 0 10px 24px -4px rgba(16, 42, 67, 0.08), 0 4px 10px -2px rgba(16, 42, 67, 0.04);
-    --shadow-lg: 0 20px 36px -6px rgba(16, 42, 67, 0.13), 0 8px 16px -4px rgba(16, 42, 67, 0.06);
+
+    /* Sombras centralizadas y convertidas a unidades relativas (REM) 
+       Fórmula base: 1rem = 16px */
+    --shadow-sm: 0 0.125rem 0.375rem rgba(16, 42, 67, 0.04), 0 0.0625rem 0.125rem rgba(16, 42, 67, 0.06);
+    --shadow-md: 0 0.625rem 1.5rem -0.25rem rgba(16, 42, 67, 0.08), 0 0.25rem 0.625rem -0.125rem rgba(16, 42, 67, 0.04);
+    --shadow-lg: 0 1.25rem 2.25rem -0.375rem rgba(16, 42, 67, 0.13), 0 0.5rem 1rem -0.25rem rgba(16, 42, 67, 0.06);
+    
+    /* Transiciones */
     --ease-snappy: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-* {
+/* ================== 2. RESETEO GLOBAL Y MODELO DE CAJA ================== */
+*, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%; 
 }
 
 html.traduciendo body {
@@ -26,11 +40,10 @@ html.traduciendo body {
     visibility: hidden;
 }
 
+/* ================== 3. TIPOGRAFÍA BASE ================== */
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
     line-height: 1.7;
-    margin: 0;
-    padding: 0;
     background-color: var(--bg-canvas);
     color: var(--text-primary);
     min-height: 100vh;
@@ -39,15 +52,10 @@ body {
     transition: opacity 150ms ease-in;
 }
 
-body.traduciendo {
-    opacity: 0;
-    visibility: hidden;
-}
-
 h1, h2, h3, h4 {
     font-family: Georgia, "Times New Roman", serif;
     color: var(--brand-deep);
-    margin-top: 0;
+    margin-bottom: 0.5em; 
     letter-spacing: -0.02em;
 }
 
@@ -123,7 +131,7 @@ body > header nav a:hover {
 body > header nav a[aria-current="page"] {
     background-color: #ffffff;
     color: var(--brand-deep);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 /* ================== SELECTOR DE IDIOMA NATIVO (SELECT) ================== */
@@ -147,8 +155,8 @@ body > header select:hover {
 }
 
 body > header select:focus-visible {
-    outline: 2px solid var(--accent-focus);
-    outline-offset: 2px;
+    outline: 0.125rem solid var(--accent-focus);
+    outline-offset: 0.125rem;
 }
 
 body > header option {
@@ -207,8 +215,8 @@ main > nav a:hover {
 }
 
 main > nav a:focus-visible {
-    outline: 2px solid var(--brand-primary);
-    outline-offset: 2px;
+    outline: 0.125rem solid var(--brand-primary);
+    outline-offset: 0.125rem;
     border-radius: 0.2rem;
 }
 
@@ -229,15 +237,15 @@ body > a[href="#main-content"] {
     font-weight: 700;
     text-decoration: none;
     border-radius: 0.375rem;
-    border: 2px solid var(--accent-focus);
+    border: 0.125rem solid var(--accent-focus);
     box-shadow: var(--shadow-lg);
     transition: top 200ms ease-in-out;
 }
 
 body > a[href="#main-content"]:focus {
     top: 1rem;
-    outline: 3px solid #ffffff;
-    outline-offset: 2px;
+    outline: 0.1875rem solid #ffffff;
+    outline-offset: 0.125rem;
 }
 
 /* ================== CONTENIDO GENERAL ================== */
@@ -267,11 +275,11 @@ main > header {
 main > header::after {
     content: "";
     position: absolute;
-    bottom: -2px;
+    bottom: -0.125rem;
     width: 4.5rem;
-    height: 3px;
+    height: 0.1875rem;
     background-color: var(--accent-focus);
-    border-radius: 2px;
+    border-radius: 0.125rem;
 }
 
 main > header > h2 {
@@ -307,10 +315,10 @@ main > section:has(article) > h2::after {
     content: "";
     display: block;
     width: 3.5rem;
-    height: 3px;
+    height: 0.1875rem;
     background-color: var(--accent-focus);
     margin: 0.75rem auto -0.85rem;
-    border-radius: 2px;
+    border-radius: 0.125rem;
 }
 
 main > section {
@@ -365,7 +373,7 @@ article > a {
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 6px rgba(29, 78, 216, 0.25);
+    box-shadow: 0 0.125rem 0.375rem rgba(29, 78, 216, 0.25);
     transition: background-color 180ms var(--ease-snappy),
                 transform 150ms var(--ease-snappy),
                 box-shadow 180ms var(--ease-snappy);
@@ -375,8 +383,8 @@ article > a {
 
 article > a:hover {
     background-color: var(--brand-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(29, 78, 216, 0.32);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.375rem 0.875rem rgba(29, 78, 216, 0.32);
 }
 
 article > a:active {
@@ -385,8 +393,8 @@ article > a:active {
 
 article > a:focus-visible,
 article p a:focus-visible {
-    outline: 2px solid var(--accent-focus);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--accent-focus);
+    outline-offset: 0.1875rem;
 }
 
 article p a {
@@ -538,10 +546,9 @@ figcaption {
 
 article video:focus-visible,
 article audio:focus-visible {
-    outline: 2px solid var(--accent-focus);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--accent-focus);
+    outline-offset: 0.1875rem;
 }
-
 /* ================== SECCIÓN 1: INTRODUCCIÓN (SOLO INICIO, SOBRE MÍ Y 404) ================== */
 main > section:first-of-type:not(:has(article > figure)) {
     display: flex;
@@ -554,6 +561,122 @@ main > section:first-of-type:not(:has(article > figure)) {
     border-left: 0.4rem solid var(--accent-focus);
     box-shadow: var(--shadow-md);
     gap: 1.5rem;
+}
+
+/* 1. Botón de descarga directa del CV en PDF */
+main > section:first-of-type article a[download] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1.4rem;
+    background-color: var(--brand-deep);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    border: 2px solid var(--brand-deep);
+    transition: background-color 180ms ease,
+                color 180ms ease,
+                border-color 180ms ease,
+                transform 150ms ease,
+                box-shadow 180ms ease;
+}
+
+main > section:first-of-type article a[download]:hover {
+    background-color: var(--accent-focus);
+    border-color: var(--accent-focus);
+    color: var(--brand-deep);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+main > section:first-of-type article a[download]:active {
+    transform: translateY(0);
+}
+
+/* 2. Tablas semánticas (Formación académica) */
+main > section:has(table) {
+    display: block; /* Anula el flexbox de "main > section" de forma natural */
+    width: 100%;
+    max-width: 70rem;
+    margin: 2rem auto;
+    padding: 0;
+}
+
+main > section > table {
+    width: 100%;
+    max-width: none;
+    margin: 1.5rem 0 0 0;
+    border-collapse: collapse;
+    table-layout: auto;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(16, 42, 67, 0.12);
+}
+
+main > section > table caption {
+    caption-side: bottom;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    opacity: 0.8;
+    text-align: center;
+}
+
+main > section > table thead {
+    background-color: var(--brand-deep);
+    color: #ffffff;
+}
+
+main > section > table th,
+main > section > table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(16, 42, 67, 0.1);
+    vertical-align: middle;
+    line-height: 1.55;
+}
+
+main > section > table thead th {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+/* Distribución equilibrada de las 3 columnas en escritorio */
+main > section > table th:nth-child(1),
+main > section > table td:nth-child(1) {
+    width: 24%;
+}
+
+main > section > table th:nth-child(2),
+main > section > table td:nth-child(2) {
+    width: 46%;
+}
+
+main > section > table th:nth-child(3),
+main > section > table td:nth-child(3) {
+    width: 30%;
+}
+
+main > section > table tbody tr {
+    transition: background-color 150ms ease;
+}
+
+main > section > table tbody tr:nth-child(even) {
+    background-color: rgba(16, 42, 67, 0.03);
+}
+
+main > section > table tbody tr:hover {
+    background-color: rgba(16, 42, 67, 0.06);
+}
+
+main > section > table tbody th {
+    font-weight: 700;
+    color: var(--brand-deep);
 }
 
 /* Asegurar que las secciones en aficiones y música no reciban el borde destacado */
@@ -602,7 +725,7 @@ main > section:first-of-type:not(:has(article > figure)) > a {
     font-weight: 700;
     padding: 0.85rem 1.75rem;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.28);
+    box-shadow: 0 0.25rem 0.75rem rgba(29, 78, 216, 0.28);
     transition: background-color 180ms var(--ease-snappy),
                 transform 150ms var(--ease-snappy),
                 box-shadow 180ms var(--ease-snappy);
@@ -612,8 +735,8 @@ main > section:first-of-type:not(:has(article > figure)) > a {
 
 main > section:first-of-type:not(:has(article > figure)) > a:hover {
     background-color: var(--brand-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(29, 78, 216, 0.35);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.5rem 1.125rem rgba(29, 78, 216, 0.35);
 }
 
 main > section:first-of-type:not(:has(article > figure)) > a:active {
@@ -621,8 +744,8 @@ main > section:first-of-type:not(:has(article > figure)) > a:active {
 }
 
 main > section:first-of-type:not(:has(article > figure)) > a:focus-visible {
-    outline: 2px solid var(--accent-focus);
-    outline-offset: 3px;
+    outline: 0.125rem solid var(--accent-focus);
+    outline-offset: 0.1875rem;
 }
 
 /* --- Imagen de perfil circular (Inicio y Sobre mí) --- */
@@ -636,7 +759,7 @@ main > section:first-of-type > img {
     object-fit: cover;
     border-radius: 50%;
     border: 0.45rem solid var(--bg-surface);
-    outline: 2px solid var(--accent-focus);
+    outline: 0.125rem solid var(--accent-focus);
     box-shadow: var(--shadow-lg);
     transition: transform 280ms var(--ease-snappy);
 }
@@ -645,14 +768,14 @@ main > section:first-of-type > img:hover {
 }
 
 /* ================== PÁGINA DE INICIO: TARJETAS INFERIORES ================== */
-main > section:nth-of-type(2):not(:has(figure)) {
+main > section:nth-of-type(2):not(:has(figure)):not(:has(table)) {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     width: 100%;
 }
 
-main > section:nth-of-type(2):not(:has(figure)) > h2 {
+main > section:nth-of-type(2):not(:has(figure)):not(:has(table)) > h2 {
     text-align: center;
     font-size: clamp(1.75rem, 2.8vw, 2.15rem);
     color: var(--brand-deep);
@@ -1014,8 +1137,8 @@ body > footer a:hover {
 }
 
 body > footer a:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
+    outline: 0.125rem solid #ffffff;
+    outline-offset: 0.1875rem;
     border-radius: 0.2rem;
 }
 
@@ -1049,6 +1172,49 @@ body > footer nav a[aria-current="page"] {
     }
 }
 
+@media (max-width: 48rem) {
+    main > section > table,
+    main > section > table thead,
+    main > section > table tbody,
+    main > section > table th,
+    main > section > table td,
+    main > section > table tr {
+        display: block;
+        width: 100% !important;
+    }
+
+    main > section > table thead {
+        position: absolute;
+        width: 1px !important;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    main > section > table tbody tr {
+        border-bottom: 2px solid rgba(16, 42, 67, 0.16);
+        padding: 0.5rem 0;
+    }
+
+    main > section > table tbody tr:last-child {
+        border-bottom: none;
+    }
+
+    main > section > table tbody th {
+        background-color: rgba(16, 42, 67, 0.06);
+        border-bottom: 1px solid rgba(16, 42, 67, 0.08);
+    }
+
+    main > section > table tbody td {
+        padding-top: 0.65rem;
+        padding-bottom: 0.65rem;
+    }
+}
+
 @media (min-width: 48rem) {
     body > header {
         position: sticky;
@@ -1075,13 +1241,13 @@ body > footer nav a[aria-current="page"] {
         gap: 1.25rem;
     }
 
-    main > section:nth-of-type(2):not(:has(figure)) {
+    mmain > section:nth-of-type(2):not(:has(figure)):not(:has(table)) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
 
-    main > section:nth-of-type(2):not(:has(figure)) > h2 {
+    main > section:nth-of-type(2):not(:has(figure)):not(:has(table)) > h2 {
         grid-column: 1 / -1;
     }
 
