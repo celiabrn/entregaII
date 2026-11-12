@@ -4,100 +4,137 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Música favorita de Celia Bobo Rodríguez-Noriega">
-        <title>Mi música | Mi página personal</title>
+        <title data-i18n="music.meta.title">Mi música | Mi página personal</title>
         <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            (function() {
+                const idiomaGuardado = localStorage.getItem('idioma_pref');
+                if (idiomaGuardado === 'en') {
+                    document.documentElement.classList.add('traduciendo');
+                }
+            })();
+        </script>
     </head>
     <body>
+        <a href="#main-content" data-i18n="skip.link">Saltar al contenido principal</a>
         <header>
-            <h1>Mi página personal</h1>
+            <h1><a href="index.html" data-i18n="header.title">Mi página personal</a></h1>
             <nav aria-label="Navegación principal">
-                <a href="index.html">Inicio</a>
-                <a href="sobre-mi.html">Sobre mí</a>
-                <a href="aficiones.html">Mis aficiones</a>
-                <a href="viajes.html">Mis viajes</a>
-                <a href="musica.html" aria-current="page">Mi música</a>
+                <a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a>
+                <a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a>
+                <a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a>
+                <a href="musica.html" aria-current="page" data-i18n="nav.musica">Mi música</a>
+            </nav>
+            <nav aria-label="Navegación secundaria">
+                <a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a>
+                <label>
+                    <span class="sr-only" data-i18n="lang.label">Seleccionar idioma</span>
+                    <select onchange="cambiarIdioma(this.value)" aria-label="Selector de idioma">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </label>
             </nav>
         </header>
-        <main>
-<<<<<<< HEAD
-=======
+        <main id="main-content">
             <nav aria-label="Migas de pan">
                 <ol>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li aria-current="page">Mi música</li>
+                    <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+                    <li aria-current="page" data-i18n="nav.musica">Mi música</li>
                 </ol>
             </nav>
->>>>>>> b8c4cb0 (Primeros cambios)
             <header>
-                <h2>Mi música favorita</h2>
-                <p>Algunos de mis grupos y canciones favoritas</p>
+                <h2 data-i18n="music.header.h2">Mi música favorita</h2>
+                <p data-i18n="music.header.p">Algunos de mis grupos y canciones favoritas</p>
             </header>
             <section>
-                <h2>Mis artistas favoritos</h2>
+                <h2 data-i18n="music.section.h2">Mis artistas favoritos</h2>
                 <article>
                     <figure>
-                        <img src="multimedia/img/saurom.png" alt="Logo de Saurom">
-                        <figcaption>Logo de Saurom</figcaption>
+                        <img src="multimedia/img/saurom.png" alt="Logo de Saurom" title="Logo de la banda Saurom">
+                        <figcaption data-i18n="music.saurom.imgCap">Logo de Saurom</figcaption>
                     </figure>
                     <h3>Saurom</h3>
-                    <p>
+                    <p data-i18n="music.saurom.p">
                         Saurom es una banda española de folk metal que conocí
                         a través de un amigo. Una de mis canciones favoritas
                         es "No Seré Yo".
                     </p>
-                    <audio controls preload="metadata">
-                        <source
-                            src="multimedia/audio/saurom.mp3"
-                            type="audio/mpeg"
-                        >
-                        Tu navegador no admite la reproducción de audio.
-                    </audio>
+                    <figure>
+                        <audio controls preload="metadata" title="Reproductor de audio: No Seré Yo de Saurom">
+                            <source
+                                src="multimedia/audio/saurom.mp3"
+                                type="audio/mpeg"
+                            >
+                            Tu navegador no admite la reproducción de audio.
+                        </audio>
+                        <figcaption data-i18n="music.saurom.audioCap">Pista de audio: No Seré Yo</figcaption>
+                    </figure>
                 </article>
                 <article>
                     <figure>
-                        <img src="multimedia/img/the-binary.jpg" alt="Logo de The Binary">
-                        <figcaption>Logo de The Binary</figcaption>
+                        <img src="multimedia/img/the-binary.webp" alt="Logo de The Binary" title="Logo de The Binary">
+                        <figcaption data-i18n="music.binary.imgCap">Logo de The Binary</figcaption>
                     </figure>
                     <h3>The Binary</h3>
-                    <p>
+                    <p data-i18n="music.binary.p1">
                         The Binary es una banda de J-pop y J-Rock japonesa. Originalmente contaba
                         con dos vocalistas, mido y Akamaru, pero esta segunda abandonó el grupo en 2024.
                         Actualmente, mido continúa componiendo y lanzando canciones en solitario
                         bajo el nombre The Binary.
                     </p>
-                    <p>
+                    <p data-i18n="music.binary.p2">
                         Una de mis canciones favoritas de la banda es Kienai (消えない), la última
                         canción en la que participaron ambas.
                     </p>
-                    <audio controls preload="metadata">
-                        <source
-                            src="multimedia/audio/the-binary.mp3"
-                            type="audio/mpeg"
-                        >
-                        Tu navegador no admite la reproducción de audio.
-                    </audio>
+                    <figure>
+                        <audio controls preload="metadata" title="Reproductor de audio: Kienai de The Binary">
+                            <source
+                                src="multimedia/audio/the-binary.mp3"
+                                type="audio/mpeg"
+                            >
+                            Tu navegador no admite la reproducción de audio.
+                        </audio>
+                        <figcaption data-i18n="music.binary.audioCap">Pista de audio: Kienai (消えない)</figcaption>
+                    </figure>
                 </article>
             </section>
         </main>
-<<<<<<< HEAD
-=======
         <footer>
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
-                <p>Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
-                <p>Contacto: <a href="mailto:celia.boborn@gmail.com">celia.boborn@gmail.com</a></p>
+                <p data-i18n="footer.master">Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
+                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
             </section>
-            <nav aria-label="Mapa del sitio">
-                <h2>Mapa del sitio</h2>
+            <!-- Nueva sección de Redes Sociales -->
+            <nav aria-label="Redes sociales y perfiles profesionales">
+                <h2 data-i18n="footer.social">Perfiles</h2>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="sobre-mi.html">Sobre mí</a></li>
-                    <li><a href="aficiones.html">Mis aficiones</a></li>
-                    <li><a href="viajes.html">Mis viajes</a></li>
-                    <li><a href="musica.html" aria-current="page">Mi música</a></li>
+                    <li>
+                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+                        </a>
+                    </li>             
+                </ul>
+            </nav>
+            <nav aria-label="Mapa del sitio">
+                <h2 data-i18n="footer.sitemap">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+                    <li><a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a></li>
+                    <li><a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a></li>
+                    <li><a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a></li>
+                    <li><a href="musica.html" data-i18n="nav.musica">Mi música</a></li>
+                    <li><a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a></li>
                 </ul>
             </nav>
         </footer>
->>>>>>> b8c4cb0 (Primeros cambios)
+        <script src="js/i18n.js"></script>
     </body>
 </html>

@@ -1,5 +1,29 @@
+:root {
+    --bg-canvas: #f6f8fa;
+    --bg-surface: #ffffff;
+    --bg-subtle: #eef3f8;
+    --brand-deep: #102a43;
+    --brand-primary: #1d4ed8;
+    --brand-hover: #1e40af;
+    --accent-focus: #0284c7;
+    --accent-soft: #e0f2fe;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --border-hairline: #dce3ec;
+    --shadow-sm: 0 2px 6px rgba(16, 42, 67, 0.04), 0 1px 2px rgba(16, 42, 67, 0.06);
+    --shadow-md: 0 10px 24px -4px rgba(16, 42, 67, 0.08), 0 4px 10px -2px rgba(16, 42, 67, 0.04);
+    --shadow-lg: 0 20px 36px -6px rgba(16, 42, 67, 0.13), 0 8px 16px -4px rgba(16, 42, 67, 0.06);
+    --ease-snappy: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 * {
     box-sizing: border-box;
+}
+
+html.traduciendo body {
+    opacity: 0;
+    visibility: hidden;
 }
 
 body {
@@ -7,183 +31,286 @@ body {
     line-height: 1.7;
     margin: 0;
     padding: 0;
-    background-color: #faf9f6;
-    color: #2d3748;
-<<<<<<< HEAD
-=======
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
->>>>>>> b8c4cb0 (Primeros cambios)
+    transition: opacity 150ms ease-in;
 }
 
-h1, h2, h3 {
+body.traduciendo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+h1, h2, h3, h4 {
     font-family: Georgia, "Times New Roman", serif;
-    color: #1a365d;
+    color: var(--brand-deep);
     margin-top: 0;
+    letter-spacing: -0.02em;
 }
 
 /* ================== CABECERA Y NAVEGACIÓN ================== */
 body > header {
-<<<<<<< HEAD
-    background-color: #1a365d;
-    color: #ffffff;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    border-bottom: 0.375rem solid #2b6cb0;
-=======
-    position: sticky;
-    top: 0;
+    position: relative;
+    top: auto;
     z-index: 100;
-    background-color: #1a365d;
+    background-color: rgba(16, 42, 67, 0.96);
+    backdrop-filter: blur(8px);
     color: #ffffff;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    border-bottom: 0.375rem solid #2b6cb0;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
->>>>>>> b8c4cb0 (Primeros cambios)
+    border-bottom: 0.25rem solid var(--accent-focus);
+    box-shadow: var(--shadow-md);
 }
 
 body > header h1 {
-    color: #ffffff;
     margin: 0;
-<<<<<<< HEAD
-    font-size: 2.25rem;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
     text-align: center;
+    font-weight: 700;
 }
 
-nav {
-=======
-    font-size: 2rem;
-    text-align: center;
+body > header h1 > a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 150ms ease;
 }
 
-body > header > nav {
->>>>>>> b8c4cb0 (Primeros cambios)
+body > header h1 > a:hover {
+    color: #bae6fd;
+}
+
+/* Menú principal a la izquierda */
+body > header > nav:first-of-type {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
-<<<<<<< HEAD
-nav a {
-    color: #ffffff;
+/* Navegación secundaria (Ayuda + Selector de idioma) a la derecha */
+body > header > nav:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+body > header nav a {
+    color: #e2e8f0;
     text-decoration: none;
     font-weight: 600;
-    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 2rem;
-    border: 0.125rem solid transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid transparent;
+    transition: background-color 180ms var(--ease-snappy),
+                color 180ms var(--ease-snappy),
+                transform 120ms var(--ease-snappy);
 }
 
-nav a:hover,
-nav a:focus,
-nav a[aria-current="page"] {
+body > header nav a:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+body > header nav a[aria-current="page"] {
     background-color: #ffffff;
-    color: #1a365d;
+    color: var(--brand-deep);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ================== SELECTOR DE IDIOMA NATIVO (SELECT) ================== */
+body > header select {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
     outline: none;
-=======
-body > header > nav a {
+    transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+body > header select:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+
+body > header select:focus-visible {
+    outline: 2px solid var(--accent-focus);
+    outline-offset: 2px;
+}
+
+body > header option {
+    background-color: var(--brand-deep);
     color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.6rem 1.15rem;
-    border-radius: 2rem;
-    border: 0.125rem solid transparent;
-    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-body > header > nav a:hover,
-body > header > nav a[aria-current="page"] {
-    background-color: #ffffff;
-    color: #1a365d;
-}
-
-body > header > nav a:focus-visible {
-    outline: 0.15rem solid #ffffff;
-    outline-offset: 0.15rem;
+/* Ocultar etiquetas visuales de forma accesible para lectores de pantalla */
+body header span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 /* ================== MIGAS DE PAN ================== */
 main > nav {
     width: 100%;
-    margin-bottom: -2.5rem;
-    font-size: 0.925rem;
+    margin-bottom: -2.25rem;
+    font-size: 0.9rem;
 }
 
 main > nav ol {
     list-style: none;
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
-    color: #4a5568;
+    color: var(--text-muted);
 }
 
 main > nav li:not(:last-child)::after {
-    content: "/";
+    content: "›";
     margin-left: 0.5rem;
-    color: #a0aec0;
+    color: var(--accent-focus);
+    font-weight: bold;
 }
 
 main > nav a {
-    color: #2b6cb0;
+    color: var(--brand-primary);
     text-decoration: none;
     font-weight: 600;
+    transition: color 150ms ease;
 }
 
 main > nav a:hover {
     text-decoration: underline;
-    color: #1a365d;
+    color: var(--accent-focus);
 }
 
 main > nav a:focus-visible {
-    outline: 0.125rem solid #2b6cb0;
-    outline-offset: 0.15rem;
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
     border-radius: 0.2rem;
 }
 
 main > nav li[aria-current="page"] {
     font-weight: 600;
-    color: #1a365d;
->>>>>>> b8c4cb0 (Primeros cambios)
+    color: var(--brand-deep);
+}
+
+/* ================== ENLACE DE SALTO RÁPIDO (SKIP LINK SEMÁNTICO) ================== */
+body > a[href="#main-content"] {
+    position: absolute;
+    top: -10rem;
+    left: 1rem;
+    background-color: var(--brand-deep);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    z-index: 1000;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    border: 2px solid var(--accent-focus);
+    box-shadow: var(--shadow-lg);
+    transition: top 200ms ease-in-out;
+}
+
+body > a[href="#main-content"]:focus {
+    top: 1rem;
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
 }
 
 /* ================== CONTENIDO GENERAL ================== */
 main {
-<<<<<<< HEAD
-=======
     width: 100%;
->>>>>>> b8c4cb0 (Primeros cambios)
     max-width: 75rem;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 4rem;
-<<<<<<< HEAD
-=======
     flex: 1;
->>>>>>> b8c4cb0 (Primeros cambios)
 }
 
-main > section:not(:first-of-type) > h2 {
+main > header {
     width: 100%;
     text-align: center;
-    font-size: 2.25rem;
-    margin-bottom: 2rem;
-    border-bottom: 0.15rem solid #2b6cb0;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-hairline);
+    position: relative;
+}
+
+main > header::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 4.5rem;
+    height: 3px;
+    background-color: var(--accent-focus);
+    border-radius: 2px;
+}
+
+main > header > h2 {
+    width: 100%;
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    color: var(--brand-deep);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+}
+
+main > header > p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    margin: 0;
+    max-width: 60ch;
+}
+
+main > section:not(:first-of-type) > h2,
+main > section:has(article) > h2 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+    margin-bottom: 1.75rem;
     padding-bottom: 0.75rem;
-    color: #2b6cb0;
+    color: var(--brand-deep);
+    border-bottom: 1px solid var(--border-hairline);
+    position: relative;
+}
+
+main > section:not(:first-of-type) > h2::after,
+main > section:has(article) > h2::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    background-color: var(--accent-focus);
+    margin: 0.75rem auto -0.85rem;
+    border-radius: 2px;
 }
 
 main > section {
@@ -194,185 +321,327 @@ main > section {
     justify-content: center;
 }
 
-main > header {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-main > header > h2 {
-    width: 100%;
-    font-size: 2.25rem;
-    color: #2b6cb0;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 0.15rem solid #2b6cb0;
-}
-
-main > header > p {
-    color: #718096;
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-/* Tarjetas base (Articles) */
+/* ================== TARJETAS BASE (ARTICLES) ================== */
 article {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 0.75rem;
-    border-top: 0.375rem solid #2b6cb0;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    background-color: var(--bg-surface);
+    padding: 2.25rem;
+    border-radius: 0.875rem;
+    border: 1px solid var(--border-hairline);
+    border-top: 0.3rem solid var(--brand-primary);
+    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
+    transition: transform 240ms var(--ease-snappy),
+                box-shadow 240ms var(--ease-snappy),
+                border-color 240ms var(--ease-snappy);
+}
+
+article:hover,
+article:focus-within {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: #cbd5e1;
 }
 
 article h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.875rem;
+    color: var(--brand-deep);
 }
 
 article p {
-    color: #4a5568;
+    color: var(--text-secondary);
     margin-top: 0;
+    max-width: 68ch;
 }
 
-article a {
-    display: inline-block;
-    background-color: #2b6cb0;
+article > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: var(--brand-primary);
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 6px rgba(29, 78, 216, 0.25);
+    transition: background-color 180ms var(--ease-snappy),
+                transform 150ms var(--ease-snappy),
+                box-shadow 180ms var(--ease-snappy);
     margin-top: auto;
     align-self: flex-start;
 }
 
-article a:hover {
-    background-color: #1a365d;
+article > a:hover {
+    background-color: var(--brand-hover);
     transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(29, 78, 216, 0.32);
 }
 
-<<<<<<< HEAD
-main > section:first-child > article a {
-=======
-main > section:first-of-type > article a {
->>>>>>> b8c4cb0 (Primeros cambios)
+article > a:active {
+    transform: scale(0.98);
+}
+
+article > a:focus-visible,
+article p a:focus-visible {
+    outline: 2px solid var(--accent-focus);
+    outline-offset: 3px;
+}
+
+article p a {
+    color: var(--brand-primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2rem;
+    transition: color 150ms ease;
+}
+
+article p a:hover {
+    color: var(--accent-focus);
+}
+
+/* No aplicar diseño de tarjeta a los bloques iniciales que no lo requieran */
+main > section:first-of-type > article:only-of-type {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+main > section:first-of-type > article:only-of-type:hover,
+main > section:first-of-type > article:only-of-type:focus-within {
+    transform: none;
+    box-shadow: none;
+}
+
+main > section:first-of-type > article > a {
     margin-top: 1.5rem;
 }
 
-/* ================== MULTIMEDIA GENERAL EN ARTÍCULOS ================== */
-article img {
-    display: block;
+/* ================== LISTAS DE DEFINICIÓN Y DESPLEGABLES (AYUDA) ================== */
+article:has(dl),
+article:has(details) {
     width: 100%;
-    margin: 0 auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
-article video {
-    display: block;
+article dl {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+article dt {
+    font-weight: 700;
+    color: var(--brand-deep);
+    font-size: 1.075rem;
+}
+
+article dd {
+    margin: 0.35rem 0 0 0;
+    padding: 0.5rem 0 0.5rem 1.1rem;
+    border-left: 0.25rem solid var(--accent-focus);
+    background-color: var(--bg-canvas);
+    border-radius: 0 0.4rem 0.4rem 0;
+    color: var(--text-secondary);
+    max-width: 72ch;
+}
+
+article details {
     width: 100%;
-    height: auto;
-    margin: 1.5rem auto 0;
+    border: 1px solid var(--border-hairline);
+    border-radius: 0.625rem;
+    padding: 1.1rem 1.35rem;
+    margin-bottom: 1rem;
+    background-color: var(--bg-canvas);
+    transition: border-color 200ms var(--ease-snappy),
+                background-color 200ms var(--ease-snappy),
+                box-shadow 200ms var(--ease-snappy);
+}
+
+article details:last-of-type {
+    margin-bottom: 0;
+}
+
+article details:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--shadow-sm);
+}
+
+article details[open] {
+    border-color: var(--brand-primary);
+    border-left: 0.3rem solid var(--accent-focus);
+    background-color: var(--bg-surface);
+    box-shadow: var(--shadow-md);
+}
+
+article summary {
+    font-weight: 700;
+    color: var(--brand-deep);
+    cursor: pointer;
+    list-style-position: outside;
+    padding: 0.25rem 0;
+    transition: color 150ms ease;
+}
+
+article summary:hover {
+    color: var(--brand-primary);
+}
+
+article summary:focus-visible {
+    outline: 2px solid var(--accent-focus);
+    outline-offset: 3px;
     border-radius: 0.25rem;
-    border: 1px solid #e2e8f0;
 }
 
-/* ================== SECCIÓN 1: INTRODUCCIÓN (INICIO) ================== */
-<<<<<<< HEAD
-main > section:first-child {
-=======
-main > section:first-of-type {
->>>>>>> b8c4cb0 (Primeros cambios)
+article details p {
+    margin: 0.85rem 0 0 0;
+}
+
+/* ================== MULTIMEDIA Y BLOQUES CONTEXTUALES ================== */
+figure {
+    background-color: var(--bg-canvas);
+    padding: 0.75rem;
+    border: 1px solid var(--border-hairline);
+    border-radius: 0.625rem;
+    transition: border-color 220ms var(--ease-snappy),
+                box-shadow 220ms var(--ease-snappy);
+}
+
+figure:hover {
+    border-color: #cbd5e1;
+    box-shadow: var(--shadow-md);
+}
+
+article img,
+article video,
+article audio {
+    display: block;
+    width: 100%;
+    border-radius: 0.45rem; /* El figure padre controla ya los bordes y sombras globales */
+}
+
+article audio {
+    border-radius: 2rem; /* El control de audio nativo tiene forma de píldora */
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+}
+
+article video:focus-visible,
+article audio:focus-visible {
+    outline: 2px solid var(--accent-focus);
+    outline-offset: 3px;
+}
+
+/* ================== SECCIÓN 1: INTRODUCCIÓN (SOLO INICIO, SOBRE MÍ Y 404) ================== */
+main > section:first-of-type:not(:has(article > figure)) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #ffffff;
-    padding: 2rem;
+    background-color: var(--bg-surface);
+    padding: 2.5rem;
     border-radius: 1rem;
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
-    gap: 1.5rem; 
+    border: 1px solid var(--border-hairline);
+    border-left: 0.4rem solid var(--accent-focus);
+    box-shadow: var(--shadow-md);
+    gap: 1.5rem;
 }
 
-<<<<<<< HEAD
-main > section:first-child > p:first-of-type {
-=======
-main > section:first-of-type > p:first-of-type {
->>>>>>> b8c4cb0 (Primeros cambios)
+/* Asegurar que las secciones en aficiones y música no reciban el borde destacado */
+main > section:nth-of-type(1):has(article > figure) {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    align-items: center;
+}
+
+main > section:first-of-type:not(:has(article > figure)) > p:first-of-type {
     text-transform: uppercase;
-    font-size: 0.875rem;
-    font-weight: bold;
-    color: #718096;
-    letter-spacing: 0.1rem;
-    margin-bottom: -1rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-focus);
+    letter-spacing: 0.12rem;
+    margin-bottom: -0.75rem;
 }
 
-<<<<<<< HEAD
-main > section:first-child > h2 {
-=======
-main > section:first-of-type > h2 {
->>>>>>> b8c4cb0 (Primeros cambios)
-    font-size: 2.5rem;
-    line-height: 1.2;
+main > section:first-of-type:not(:has(article > figure)) > h2 {
+    font-size: clamp(2.1rem, 4vw, 3rem);
+    line-height: 1.15;
     margin: 0;
+    color: var(--brand-deep);
 }
 
-<<<<<<< HEAD
-main > section:first-child > h2 span {
-=======
-main > section:first-of-type > h2 span {
->>>>>>> b8c4cb0 (Primeros cambios)
+main > section:first-of-type:not(:has(article > figure)) > h2 span {
     display: block;
-    color: #2b6cb0;
+    color: var(--brand-primary);
+    margin-top: 0.25rem;
 }
 
-/* --- Botón del perfil --- */
-<<<<<<< HEAD
-main > section:first-child > a {
-=======
-main > section:first-of-type > a {
->>>>>>> b8c4cb0 (Primeros cambios)
-    display: inline-block;
-    background-color: #2b6cb0;
+main > section:first-of-type:not(:has(article > figure)) > p {
+    max-width: 62ch;
+    color: var(--text-secondary);
+}
+
+/* --- Botón principal de portada --- */
+main > section:first-of-type:not(:has(article > figure)) > a {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--brand-primary);
     color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    padding: 0.85rem 1.75rem;
     border-radius: 0.5rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(29, 78, 216, 0.28);
+    transition: background-color 180ms var(--ease-snappy),
+                transform 150ms var(--ease-snappy),
+                box-shadow 180ms var(--ease-snappy);
     align-self: flex-start;
     justify-self: start;
 }
 
-<<<<<<< HEAD
-main > section:first-child > a:hover {
-=======
-main > section:first-of-type > a:hover {
->>>>>>> b8c4cb0 (Primeros cambios)
-    background-color: #1a365d;
+main > section:first-of-type:not(:has(article > figure)) > a:hover {
+    background-color: var(--brand-hover);
     transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(29, 78, 216, 0.35);
 }
 
-/* --- Imagen de perfil circular --- */
-<<<<<<< HEAD
-main > section:first-child > img {
-=======
+main > section:first-of-type:not(:has(article > figure)) > a:active {
+    transform: scale(0.98);
+}
+
+main > section:first-of-type:not(:has(article > figure)) > a:focus-visible {
+    outline: 2px solid var(--accent-focus);
+    outline-offset: 3px;
+}
+
+/* --- Imagen de perfil circular (Inicio y Sobre mí) --- */
 main > section:first-of-type > img {
->>>>>>> b8c4cb0 (Primeros cambios)
+    order: -1;
+    margin: 0 auto 1rem auto;
     width: 100%;
-    max-width: 16rem;
+    max-width: 16.5rem;
     height: auto;
     aspect-ratio: 1 / 1;
-    object-fit: cover; 
+    object-fit: cover;
     border-radius: 50%;
-    border: 0.5rem solid #edf2f7; 
-    margin: 0 auto;
+    border: 0.45rem solid var(--bg-surface);
+    outline: 2px solid var(--accent-focus);
+    box-shadow: var(--shadow-lg);
+    transition: transform 280ms var(--ease-snappy);
+}
+main > section:first-of-type > img:hover {
+    transform: scale(1.02);
 }
 
 /* ================== PÁGINA DE INICIO: TARJETAS INFERIORES ================== */
@@ -385,60 +654,66 @@ main > section:nth-of-type(2):not(:has(figure)) {
 
 main > section:nth-of-type(2):not(:has(figure)) > h2 {
     text-align: center;
-    font-size: 2rem;
-    color: #1a365d;
+    font-size: clamp(1.75rem, 2.8vw, 2.15rem);
+    color: var(--brand-deep);
     margin: 0;
 }
 
 main > section:nth-of-type(2):not(:has(figure)) > article {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 0.75rem;
-    border-top: 0.375rem solid #2b6cb0;
-    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
+    width: 100%;
 }
 
 main > section:nth-of-type(2):not(:has(figure)) > article h3 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     margin-top: 0;
-    margin-bottom: 1rem;
-    color: #1a365d;
+    margin-bottom: 0.85rem;
+    color: var(--brand-deep);
 }
 
 main > section:nth-of-type(2):not(:has(figure)) > article p {
-    color: #4a5568;
+    color: var(--text-secondary);
     margin-top: 0;
     margin-bottom: 1.5rem;
-    flex-grow: 1; 
-}
-
-<<<<<<< HEAD
-main > section:first-child > article {
-=======
-main > section:first-of-type > article {
->>>>>>> b8c4cb0 (Primeros cambios)
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    box-shadow: none;
+    flex-grow: 1;
 }
 
 /* ================== PÁGINA DE AFICIONES ================== */
-/* ================== SECCIÓN: PELÍCULAS Y SERIES ================== */
-main > section:nth-of-type(1):has(figure) {
+/* Contenedor general de las secciones de aficiones */
+main > section:nth-of-type(1):has(figure),
+main > section:nth-of-type(2):has(figure),
+main > section:nth-of-type(3) {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2.5rem;
+    width: 100%;
 }
 
+/* ================== EFECTOS HOVER PARA IMÁGENES DE AFICIONES ================== */
+main > section:nth-of-type(1):has(figure) > article figure img,
+main > section:nth-of-type(2):has(figure) > article > figure img,
+main > section:nth-of-type(3) > article figure img {
+    transition: transform 280ms var(--ease-snappy), box-shadow 280ms var(--ease-snappy);
+    cursor: pointer;
+}
+
+main > section:nth-of-type(1):has(figure) > article figure img:hover,
+main > section:nth-of-type(2):has(figure) > article > figure img:hover,
+main > section:nth-of-type(3) > article figure img:hover {
+    transform: scale(1.025);
+    box-shadow: var(--shadow-lg);
+    z-index: 10;
+    position: relative;
+}
+
+/* --- 1. Películas y series --- */
 main > section:nth-of-type(1):has(figure) > article {
     width: 100%;
-    max-width: 65rem;
+    max-width: 70rem; /* Ampliado para que ocupe más espacio horizontal */
+    padding: 2rem;
     display: flex;
-    flex-direction: column; 
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 main > section:nth-of-type(1):has(figure) > article > header {
@@ -452,121 +727,103 @@ main > section:nth-of-type(1):has(figure) > article figure {
     flex-direction: column;
     gap: 0.5rem;
     margin: 0;
-    padding: 0;
-    height: 100%;
-    min-height: 0;
+    width: 100%;
 }
 
-main > section:nth-of-type(1):has(figure) > article figure img {
+main > section:nth-of-type(1):has(figure) > article figure img,
+main > section:nth-of-type(1):has(figure) > article video {
     width: 100%;
-    height: 100%;
-    flex-grow: 1;
-    min-height: 0;
+    height: auto;
     object-fit: cover;
-    margin: 0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 280ms var(--ease-snappy), box-shadow 280ms var(--ease-snappy);
     cursor: pointer;
 }
 
-main > section:nth-of-type(1):has(figure) > article figure img:hover {
-    transform: scale(1.05) rotate(2deg);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.25);
+main > section:nth-of-type(1):has(figure) > article figure img:hover,
+main > section:nth-of-type(1):has(figure) > article video:hover {
+    transform: scale(1.025);
+    box-shadow: var(--shadow-lg);
     z-index: 10;
     position: relative;
 }
 
-figcaption {
-    text-align: center;
-    font-style: italic;
-    color: #718096;
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-}
-
-main > section:nth-of-type(1):has(figure) > article video {
-    margin: 0;
-}
-
-/* ================== SECCIÓN: ANIMALES ================== */
-main > section:nth-of-type(2) > article {
-    flex-direction: row;
+/* --- 2. Animales / Mascotas --- */
+main > section:nth-of-type(2):has(figure) > article {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    max-width: 60rem;
-    gap: 2rem;
-    flex: 1 1 100%;
+    max-width: 70rem;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 2rem;
 }
 
-main > section:nth-of-type(2) > article > figure {
+main > section:nth-of-type(2):has(figure) > article > figure {
+    order: -1; 
     margin: 0;
-    width: 45%;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-main > section:nth-of-type(2) > article > figure img {
+main > section:nth-of-type(2):has(figure) > article > figure img {
     width: 100%;
     height: auto;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 280ms var(--ease-snappy), box-shadow 280ms var(--ease-snappy);
     cursor: pointer;
 }
 
-main > section:nth-of-type(2) > article > figure img:hover {
-    transform: scale(1.05) rotate(-2deg);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.25);
+main > section:nth-of-type(2):has(figure) > article > figure img:hover {
+    transform: scale(1.025);
+    box-shadow: var(--shadow-lg);
     z-index: 10;
     position: relative;
 }
 
-main > section:nth-of-type(2) > article > header {
-    width: 55%;
+main > section:nth-of-type(2):has(figure) > article > header {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* ================== SECCIÓN: BOTÁNICA ================== */
+/* --- 3. Botánica --- */
 main > section:nth-of-type(3) > article {
-    max-width: 60rem;
-    flex: 1 1 100%;
+    max-width: 70rem;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 main > section:nth-of-type(3) > article figure {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 12rem;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
-    margin: 2rem 0 0 0;
-    padding: 0;
+    padding: 0.5rem;
+    margin: 1.5rem 0 0 0;
+    width: 100%;
+}
+
+main > section:nth-of-type(3) > article figure figcaption {
+    text-align: center;
+    width: 100%;
 }
 
 main > section:nth-of-type(3) > article figure img {
     width: 100%;
-    height: 100%; 
+    height: auto;
+    max-height: 16rem;
     object-fit: cover;
-    margin: 0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 280ms var(--ease-snappy), box-shadow 280ms var(--ease-snappy);
     cursor: pointer;
 }
 
-main > section:nth-of-type(3) > article figure img:first-of-type {
-    grid-column: span 2;
-    grid-row: span 2;
-}
-
 main > section:nth-of-type(3) > article figure img:hover {
-    transform: scale(1.05) rotate(-2deg);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.25);
+    transform: scale(1.025);
+    box-shadow: var(--shadow-lg);
     z-index: 10;
     position: relative;
-}
-
-main > section:nth-of-type(3) > article figure figcaption {
-    grid-column: span 2;
-    text-align: center;
-    font-style: italic;
-    color: #718096;
-    margin-top: 1rem;
-    font-size: 0.95rem;
 }
 
 /* ================== PÁGINA MIS VIAJES ================== */
@@ -576,19 +833,14 @@ main > section > ol {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 4rem; 
+    gap: 3.5rem;
     width: 100%;
 }
 
 main > section > ol > li > article {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 0.75rem;
-    border-top: 0.375rem solid #2b6cb0;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
     display: grid;
-    grid-template-columns: 1fr; 
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
 }
 
 main > section > ol > li > article figure {
@@ -604,22 +856,22 @@ main > section > ol > li > article figure img {
     height: auto;
     flex-grow: 1;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-radius: 0.45rem;
     max-height: 25rem;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 280ms var(--ease-snappy), box-shadow 280ms var(--ease-snappy);
     cursor: pointer;
 }
 
 main > section > ol > li > article figure figcaption {
     text-align: center;
     font-style: italic;
-    color: #718096;
+    color: var(--text-muted);
     font-size: 0.9rem;
 }
 
 main > section > ol > li > article figure img:hover {
-    transform: scale(1.03) rotate(1.5deg); 
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.25);
+    transform: scale(1.025);
+    box-shadow: var(--shadow-lg);
     z-index: 10;
     position: relative;
 }
@@ -627,74 +879,112 @@ main > section > ol > li > article figure img:hover {
 main > section > ol > li > article hgroup {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.3rem;
     margin: 0;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-hairline);
 }
 
 main > section > ol > li > article hgroup p:first-of-type {
-    color: #718096;
-    font-weight: bold;
-    letter-spacing: 0.15rem;
-    font-size: 0.85rem;
+    color: var(--accent-focus);
+    font-weight: 700;
+    letter-spacing: 0.14rem;
+    font-size: 0.82rem;
     margin: 0;
     text-transform: uppercase;
 }
 
 main > section > ol > li > article hgroup h3 {
-    font-size: 2.25rem;
+    font-size: clamp(1.85rem, 3vw, 2.35rem);
     margin: 0;
-    color: #1a365d;
+    color: var(--brand-deep);
+}
+
+main > section > ol > li > article hgroup p:last-of-type {
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0;
+}
+
+main > section > ol > li > article > section h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.65rem;
+    color: var(--brand-primary);
 }
 
 main > section > ol > li > article > section p {
-    color: #4a5568;
+    color: var(--text-secondary);
     margin-top: 0;
     margin-bottom: 1rem;
 }
 
 /* ================== PÁGINA DE MÚSICA ================== */
-/* 1. Comportamiento general de la tarjeta */
+main > section:nth-of-type(1):has(audio) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+}
+
 main > section:nth-of-type(1):has(audio) > article {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
+    max-width: 60rem;
+    padding: 2.25rem;
 }
 
-main > section:nth-of-type(1):has(audio) > article > figure {
+main > section:nth-of-type(1):has(audio) > article > figure:has(img) {
     width: 100%;
-    height: fit-content; 
-    margin: 0;
+    max-width: 15rem;
+    height: fit-content;
+    margin: 0 auto;
     align-self: start;
+    background: var(--bg-canvas);
 }
 
-main > section:nth-of-type(1):has(audio) > article > figure figcaption {
-    text-align: center;
-    font-style: italic;
-    color: #718096;
-    font-size: 0.85rem;
-}
-
-main > section:nth-of-type(1):has(audio) > article > figure img {
+main > section:nth-of-type(1):has(audio) > article > figure:has(img) img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    aspect-ratio: 1 / 1;
+    object-fit: contain; 
+    transition: transform 280ms var(--ease-snappy);
+    padding: 0.5rem;
 }
 
-main > section:nth-of-type(1):has(audio) > article > audio {
+main > section:nth-of-type(1):has(audio) > article:hover > figure:has(img) img {
+    transform: scale(1.03);
+}
+
+main > section:nth-of-type(1):has(audio) > article > h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-soft);
+}
+
+main > section:nth-of-type(1):has(audio) > article > figure:has(audio) {
     width: 100%;
-    max-width: 20rem;
+    max-width: 26rem;
     margin-top: 0.5rem;
+    background-color: var(--bg-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-<<<<<<< HEAD
-=======
+main > section:nth-of-type(1):has(audio) > article > figure:has(audio) audio {
+    width: 100%;
+}
+
 /* ================== PIE DE PÁGINA Y MAPA DEL SITIO ================== */
 body > footer {
-    background-color: #1a365d;
+    background-color: var(--brand-deep);
     color: #ffffff;
-    border-top: 0.375rem solid #2b6cb0;
-    margin-top: 3rem;
-    padding: 2.5rem 1.5rem;
+    border-top: 0.3rem solid var(--accent-focus);
+    margin-top: 4rem;
+    padding: 3rem 1.5rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -707,7 +997,7 @@ body > footer h2 {
 }
 
 body > footer p {
-    color: #e2e8f0;
+    color: #cbd5e1;
     margin: 0 0 0.5rem 0;
     font-size: 0.95rem;
 }
@@ -715,17 +1005,17 @@ body > footer p {
 body > footer a {
     color: #ffffff;
     text-decoration: underline;
-    text-underline-offset: 0.2rem;
-    transition: opacity 0.2s ease;
+    text-underline-offset: 0.22rem;
+    transition: color 150ms ease, opacity 150ms ease;
 }
 
 body > footer a:hover {
-    opacity: 0.85;
+    color: #bae6fd;
 }
 
 body > footer a:focus-visible {
-    outline: 0.125rem solid #ffffff;
-    outline-offset: 0.2rem;
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
     border-radius: 0.2rem;
 }
 
@@ -735,33 +1025,54 @@ body > footer nav ul {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
+    gap: 1rem 1.5rem;
 }
 
 body > footer nav a {
     text-decoration: none;
     font-weight: 600;
+    padding: 0.5rem 0;
+    display: inline-block;
 }
 
 body > footer nav a:hover,
 body > footer nav a[aria-current="page"] {
     text-decoration: underline;
+    text-decoration-color: var(--accent-focus);
+    text-decoration-thickness: 2px;
 }
 
->>>>>>> b8c4cb0 (Primeros cambios)
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
 @media (min-width: 48rem) {
     body > header {
+        position: sticky;
+        top: 0;
         flex-direction: row;
         justify-content: space-between;
-<<<<<<< HEAD
-        padding: 1.5rem 3rem;
-=======
-        padding: 1rem 3rem;
->>>>>>> b8c4cb0 (Primeros cambios)
+        align-items: center;
+        padding: 1rem 2.5rem;
     }
-    
+
     body > header h1 {
         text-align: left;
+        font-size: 1.5rem;
+    }
+
+    /* Menú principal alineado a la izquierda */
+    body > header > nav:first-of-type {
+        justify-content: flex-start;
+        margin-left: 1.5rem;
+        flex: 1;
+    }
+
+    body > header > nav:last-of-type {
+        gap: 1.25rem;
     }
 
     main > section:nth-of-type(2):not(:has(figure)) {
@@ -769,13 +1080,19 @@ body > footer nav a[aria-current="page"] {
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
     }
+
     main > section:nth-of-type(2):not(:has(figure)) > h2 {
         grid-column: 1 / -1;
     }
 
+    main > section:nth-of-type(2):not(:has(figure)):has(> article:only-of-type) {
+        display: flex;
+        flex-direction: column;
+    }
+
     main > section > ol > li > article {
-        grid-template-columns: 45% 1fr; 
-        grid-template-rows: auto 1fr;   
+        grid-template-columns: 45% 1fr;
+        grid-template-rows: auto 1fr;
         column-gap: 3rem;
         row-gap: 1.5rem;
     }
@@ -792,151 +1109,197 @@ body > footer nav a[aria-current="page"] {
 
     main > section > ol > li > article hgroup {
         grid-column: 2 / 3;
-        grid-row: 1 / 2; 
+        grid-row: 1 / 2;
     }
 
     main > section > ol > li > article > section {
         grid-column: 2 / 3;
-        grid-row: 2 / 3; 
+        grid-row: 2 / 3;
     }
 
-    /* INICIO */
-<<<<<<< HEAD
-    main > section:first-child {
-=======
-    main > section:first-of-type {
->>>>>>> b8c4cb0 (Primeros cambios)
+    /* Restaurar el tamaño del menú en escritorio */
+    body > header > nav {
+        gap: 0.75rem;
+    }
+    body > header > nav a {
+        padding: 0.5rem 1.15rem;
+    }
+
+    /* Restaurar posición de la imagen de perfil en el grid */
+    main > section:first-of-type > img {
+        order: 0;
+        margin: 0;
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+        width: 16.5rem;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        align-self: center;
+    }
+
+    /* INICIO Y SOBRE MÍ */
+    main > section:first-of-type:not(:has(article > figure)) {
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: auto auto auto 1fr;
-        column-gap: 3rem; 
-        padding: 4rem; 
+        column-gap: 3.5rem;
+        padding: 4rem;
     }
 
-<<<<<<< HEAD
-    main > section:first-child > img {
-=======
     main > section:first-of-type > img {
->>>>>>> b8c4cb0 (Primeros cambios)
         grid-column: 1 / 2;
-        grid-row: 1 / -1; 
-        width: 16rem;
+        grid-row: 1 / -1;
+        width: 16.5rem;
         height: auto;
-        aspect-ratio: 1 / 1; 
+        aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 50%;
-        border: 0.5rem solid #edf2f7; 
-        align-self: center; 
-        margin: 0; 
+        align-self: center;
+        margin: 0;
     }
 
-<<<<<<< HEAD
-    main > section:first-child > *:not(img) {
+    main > section:first-of-type:not(:has(article > figure)) > *:not(img) {
         grid-column: 2 / 3;
     }
 
-    main > section:first-child > a {
-=======
-    main > section:first-of-type > *:not(img) {
+    main > section:first-of-type:not(:has(article > figure)) > a {
+        align-self: start;
+    }
+
+    /* PÁGINA AFICIONES: Animales en tablet/desktop */
+    main > section:nth-of-type(2):has(figure) > article {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    main > section:nth-of-type(2):has(figure) > article > figure {
+        order: 0;
+        width: 45%;
+    }
+    
+    main > section:nth-of-type(2):has(figure) > article > header {
+        width: 55%;
+        text-align: left;
+    }
+
+    /* PÁGINA AFICIONES: Botánica en Grid 2x2 */
+    main > section:nth-of-type(3) > article figure {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        padding: 1rem;
+        align-items: stretch;
+    }
+    
+    main > section:nth-of-type(3) > article figure img {
+        max-height: none;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0.45rem;
+    }
+
+    main > section:nth-of-type(3) > article figure img:nth-of-type(1) {
+        grid-column: 1 / 2;
+        grid-row: span 2;
+        min-height: 22rem;
+    }
+    
+    main > section:nth-of-type(3) > article figure img:nth-of-type(2),
+    main > section:nth-of-type(3) > article figure img:nth-of-type(3) {
         grid-column: 2 / 3;
+        height: 10.5rem;
     }
 
-    main > section:first-of-type > a {
->>>>>>> b8c4cb0 (Primeros cambios)
-        align-self: start; 
+    main > section:nth-of-type(3) > article figure figcaption {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 0.5rem;
     }
 
-    /* ================== PÁGINA DE MÚSICA ================== */
+    /* PÁGINA DE MÚSICA */
     main > section:nth-of-type(1):has(audio) > article {
         display: grid;
-        grid-template-columns: 12.5rem 1fr; 
-        grid-template-rows: auto auto auto auto 1fr; 
+        grid-template-columns: 13.5rem 1fr;
+        grid-template-rows: auto auto auto 1fr;
         column-gap: 3rem;
         align-items: start;
     }
 
-    main > section:nth-of-type(1):has(audio) > article > figure {
+    main > section:nth-of-type(1):has(audio) > article > figure:has(img) {
         grid-column: 1 / 2;
-        grid-row: 1 / -1; 
+        grid-row: 1 / -1;
         max-width: 100%;
         margin: 0;
-        align-self: start;
+        align-self: center;
     }
 
-    main > section:nth-of-type(1):has(audio) > article > *:not(figure) {
+    main > section:nth-of-type(1):has(audio) > article > *:not(figure:has(img)) {
         grid-column: 2 / 3;
     }
 
     main > section:nth-of-type(1):has(audio) > article > h3 {
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
     }
 
     main > section:nth-of-type(1):has(audio) > article > p {
         margin-bottom: 1rem;
     }
 
-    main > section:nth-of-type(1):has(audio) > article > audio {
-        width: 100%;
-        max-width: 20rem; 
-        margin-top: 1rem;
+    main > section:nth-of-type(1):has(audio) > article > figure:has(audio) {
+        align-self: end;
     }
-<<<<<<< HEAD
-=======
 
     /* PIE DE PÁGINA */
     body > footer {
         grid-template-columns: 1fr auto;
         align-items: start;
-        padding: 2.5rem 3rem;
+        padding: 3rem;
     }
->>>>>>> b8c4cb0 (Primeros cambios)
 }
 
 @media (min-width: 60rem) {
-    /* 1. Contenedor principal */
+    /* PÁGINA DE AFICIONES: PELÍCULAS Y SERIES */
     main > section:nth-of-type(1):has(video) > article {
         display: grid;
-        grid-template-columns: 55% 1fr; 
-        grid-template-rows: auto auto; 
-        gap: 2rem 4rem;                 
-        align-items: stretch; 
+        grid-template-columns: 55% 1fr;
+        grid-template-rows: auto auto;
+        gap: 2.25rem 4rem;
+        align-items: stretch;
         width: 100%;
         max-width: 65rem;
         margin: 0 auto;
     }
 
     main > section:nth-of-type(1):has(video) > article > header,
-    main > section:nth-of-type(1):has(video) > article > video {
-        align-self: start; 
+    main > section:nth-of-type(1):has(video) > article > figure:has(video) {
+        align-self: start;
     }
 
     main > section:nth-of-type(1):has(video) > article > header {
-        grid-column: 1 / 2; 
-        grid-row: 1 / 2;    
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
     }
     
-    main > section:nth-of-type(1):has(video) > article > video {
-        grid-column: 1 / 2; 
-        grid-row: 2 / 3;    
-        margin-top: 0;      
+    main > section:nth-of-type(1):has(video) > article > figure:has(video) {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
     }
     
-<<<<<<< HEAD
-    main > section:nth-of-type(1):has(video) > article> figure {
-=======
-    main > section:nth-of-type(1):has(video) > article > figure {
->>>>>>> b8c4cb0 (Primeros cambios)
-        grid-column: 2 / 3; 
-        grid-row: 1 / 3;    
+    main > section:nth-of-type(1):has(video) > article > figure:has(img) {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
         display: grid;
-        grid-template-rows: minmax(0, 1fr) auto; 
+        grid-template-rows: minmax(0, 1fr) auto;
         height: 0;
         min-height: 100%;
         margin: 0;
         gap: 0.5rem;
     }
 
-    main > section:nth-of-type(1):has(video) > article > figure img {
+    main > section:nth-of-type(1):has(video) > article > figure:has(img) img {
         max-width: 100%;
         max-height: 100%;
         width: auto;
@@ -949,14 +1312,14 @@ body > footer nav a[aria-current="page"] {
     }
     
     main > section:nth-of-type(1):has(video) > article:nth-of-type(even) > header {
-        grid-column: 2 / 3; 
+        grid-column: 2 / 3;
     }
     
-    main > section:nth-of-type(1):has(video) > article:nth-of-type(even) > video {
-        grid-column: 2 / 3; 
+    main > section:nth-of-type(1):has(video) > article:nth-of-type(even) > figure:has(video) {
+        grid-column: 2 / 3;
     }
     
-    main > section:nth-of-type(1):has(video) > article:nth-of-type(even) > figure {
-        grid-column: 1 / 2; 
+    main > section:nth-of-type(1):has(video) > article:nth-of-type(even) > figure:has(img) {
+        grid-column: 1 / 2;
     }
 }

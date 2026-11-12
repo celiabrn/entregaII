@@ -4,56 +4,50 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Página web personal de Celia Bobo Rodríguez-Noriega">
-        <title>Inicio | Mi página personal</title>
+        <title data-i18n="index.meta.title">Inicio | Mi página personal</title>
         <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script>
+            (function() {
+                const idiomaGuardado = localStorage.getItem('idioma_pref');
+                if (idiomaGuardado === 'en') {
+                    document.documentElement.classList.add('traduciendo');
+                }
+            })();
+        </script>
     </head>
-
     <body>
+        <a href="#main-content" data-i18n="skip.link">Saltar al contenido principal</a>
         <header>
-            <h1>Mi página personal</h1>
+            <h1><a href="index.html" data-i18n="header.title">Mi página personal</a></h1>
             <nav aria-label="Navegación principal">
-                <a href="index.html" aria-current="page">Inicio</a>
-                <a href="sobre-mi.html">Sobre mí</a>
-                <a href="aficiones.html">Mis aficiones</a>
-                <a href="viajes.html">Mis viajes</a>
-                <a href="musica.html">Mi música</a>
-<<<<<<< HEAD
-=======
-                <a href="ayuda.html">Ayuda</a>
->>>>>>> b8c4cb0 (Primeros cambios)
+                <a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a>
+                <a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a>
+                <a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a>
+                <a href="musica.html" data-i18n="nav.musica">Mi música</a>
+            </nav>
+            <nav aria-label="Navegación secundaria">
+                <a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a>
+                <label>
+                    <span class="sr-only" data-i18n="lang.label">Seleccionar idioma</span>
+                    <select onchange="cambiarIdioma(this.value)" aria-label="Selector de idioma">
+                        <option value="es">ES</option>
+                        <option value="en">EN</option>
+                    </select>
+                </label>
             </nav>
         </header>
-        <main>
+        <main id="main-content">
             <!-- SECCIÓN 1: Bienvenida -->
             <section>
-<<<<<<< HEAD
-                    <p>BIENVENIDO/A</p>
-
-                    <h2>
-                        Hola, soy
-                        <span>Celia Bobo Rodríguez-Noriega</span>
-                    </h2>
-
-                    <p>
-                        Me encuentro actualmente cursando el Máster en
-                        Ingeniería Web de la Universidad de Oviedo, tras
-                        acabar el Grado en Ingeniería Informática del
-                        Software. En esta página hablo sobre mí, mis
-                        aficiones y otros intereses.
-                    </p>
-
-                    <a href="sobre-mi.html">
-                        Acerca de mí
-                    </a>
-=======
-                <p>BIENVENIDO/A</p>
+                <p data-i18n="index.welcome">BIENVENIDO/A</p>
 
                 <h2>
-                    Hola, soy
+                    <span data-i18n="index.greeting">Hola, soy</span>
                     <span>Celia Bobo Rodríguez-Noriega</span>
                 </h2>
 
-                <p>
+                <p data-i18n="index.bio">
                     Me encuentro actualmente cursando el Máster en
                     Ingeniería Web de la Universidad de Oviedo, tras
                     acabar el Grado en Ingeniería Informática del
@@ -61,79 +55,82 @@
                     aficiones y otros intereses.
                 </p>
 
-                <a href="sobre-mi.html" title="Ir a la sección con información personal y académica">
+                <a href="sobre-mi.html" title="Ir a la sección con información personal y académica" data-i18n="index.btnAbout">
                     Acerca de mí
                 </a>
->>>>>>> b8c4cb0 (Primeros cambios)
                 <img
-                    src="multimedia/img/foto-perfil.jpg"
+                    src="multimedia/img/foto-perfil.webp"
                     alt="Fotografía de Celia Bobo Rodríguez-Noriega"
+                    height="2048"
+                    width="2048"
                 >
             </section>
 
             <!-- SECCIÓN 2: Páginas de interés -->
             <section>
-                <h2>Páginas de interés</h2>
+                <h2 data-i18n="index.interests.title">Páginas de interés</h2>
                 
                 <article>
-                    <h3>Mis aficiones</h3>
-                    <p>
+                    <h3 data-i18n="index.interests.hobbies.h3">Mis aficiones</h3>
+                    <p data-i18n="index.interests.hobbies.p">
                         Descubre algunas de las actividades que más
                         me gustan.
                     </p>
-<<<<<<< HEAD
-                    <a href="aficiones.html">Ver aficiones</a>
-=======
-                    <a href="aficiones.html" title="Explorar películas, mascotas y botánica">Ver aficiones</a>
->>>>>>> b8c4cb0 (Primeros cambios)
+                    <a href="aficiones.html" title="Explorar películas, mascotas y botánica" data-i18n="index.interests.hobbies.btn">Ver aficiones</a>
                 </article>
 
                 <article>
-                    <h3>Mis viajes</h3>
-                    <p>
+                    <h3 data-i18n="index.interests.travels.h3">Mis viajes</h3>
+                    <p data-i18n="index.interests.travels.p">
                         Descubre algunas de las viajes que he realizado.
                     </p>
-<<<<<<< HEAD
-                    <a href="viajes.html">Ver viajes</a>
-=======
-                    <a href="viajes.html" title="Explorar viajes a Sanabria, Alemania y Estados Unidos">Ver viajes</a>
->>>>>>> b8c4cb0 (Primeros cambios)
+                    <a href="viajes.html" title="Explorar viajes a Sanabria, Alemania y Estados Unidos" data-i18n="index.interests.travels.btn">Ver viajes</a>
                 </article>
 
                 <article>
-                    <h3>Mi música</h3>
-                    <p>
+                    <h3 data-i18n="index.interests.music.h3">Mi música</h3>
+                    <p data-i18n="index.interests.music.p">
                         Descubre algunas de mis canciones y bandas
                         favoritas.
                     </p>
-<<<<<<< HEAD
-                    <a href="musica.html">Ver música</a>
-                </article>
-            </section>
-        </main>
-=======
-                    <a href="musica.html" title="Escuchar grupos y canciones favoritas">Ver música</a>
+                    <a href="musica.html" title="Escuchar grupos y canciones favoritas" data-i18n="index.interests.music.btn">Ver música</a>
                 </article>
             </section>
         </main>
         <footer>
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
-                <p>Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
-                <p>Contacto: <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
+                <p data-i18n="footer.master">Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
+                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
             </section>
-            <nav aria-label="Mapa del sitio">
-                <h2>Mapa del sitio</h2>
+            <!-- Nueva sección de Redes Sociales -->
+            <nav aria-label="Redes sociales y perfiles profesionales">
+                <h2 data-i18n="footer.social">Perfiles</h2>
                 <ul>
-                    <li><a href="index.html" aria-current="page">Inicio</a></li>
-                    <li><a href="sobre-mi.html">Sobre mí</a></li>
-                    <li><a href="aficiones.html">Mis aficiones</a></li>
-                    <li><a href="viajes.html">Mis viajes</a></li>
-                    <li><a href="musica.html">Mi música</a></li>
-                    <li><a href="ayuda.html">Ayuda</a></li>
+                    <li>
+                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia">
+                            <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+                        </a>
+                    </li>             
+                </ul>
+            </nav>
+            <nav aria-label="Mapa del sitio">
+                <h2 data-i18n="footer.sitemap">Mapa del sitio</h2>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
+                    <li><a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a></li>
+                    <li><a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a></li>
+                    <li><a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a></li>
+                    <li><a href="musica.html" data-i18n="nav.musica">Mi música</a></li>
+                    <li><a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a></li>
                 </ul>
             </nav>
         </footer>
->>>>>>> b8c4cb0 (Primeros cambios)
+        <script src="js/i18n.js"></script>
     </body>
 </html>
