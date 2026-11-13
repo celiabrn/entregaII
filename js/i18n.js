@@ -41,6 +41,17 @@ async function cambiarIdioma(idioma) {
                 }
             }
         });
+
+        // Actualizar títulos accesibles
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            const clave = el.getAttribute('data-i18n-title');
+            if (diccionario[clave]) {
+                el.title = diccionario[clave];
+            }
+        });
+
+        // Notificar cambio de idioma a otros módulos
+        window.dispatchEvent(new CustomEvent('idiomacambiado', { detail: { idioma: idiomaValido } }));
     } catch (error) {
         console.error('Error al aplicar la internacionalización:', error);
     } finally {
@@ -48,6 +59,11 @@ async function cambiarIdioma(idioma) {
         document.documentElement.classList.remove('traduciendo');
     }
 }
+
+// Exponer para otros módulos como el buscador
+window.cacheTraducciones = cacheTraducciones;
+window.cargarDiccionario = cargarDiccionario;
+window.cambiarIdioma = cambiarIdioma;
 
 document.addEventListener('DOMContentLoaded', () => {
     const idiomaGuardado = localStorage.getItem('idioma_pref') || 'es';

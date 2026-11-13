@@ -27,6 +27,11 @@
                 <a href="musica.html" data-i18n="nav.musica">Mi música</a>
             </nav>
             <nav aria-label="Navegación secundaria">
+                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span data-i18n="search.openBtn">Buscar</span>
+                    <kbd>/</kbd>
+                </button>
                 <a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a>
                 <label>
                     <span data-i18n="lang.label">Seleccionar idioma</span>
@@ -47,11 +52,11 @@
             </nav>
 
             <!-- SECCIÓN 1: Presentación y descarga de CV -->
-            <section>
+            <section id="presentacion">
                 <h2 data-i18n="nav.sobreMi">Sobre mí</h2>
                 <img src="multimedia/img/foto-perfil.webp" alt="Fotografía de Celia Bobo Rodríguez-Noriega" height="2048" width="2048" title="Fotografía de Celia Bobo Rodríguez-Noriega">
                 
-                <article>
+                <article id="personal">
                     <p data-i18n="about.subtitle">Conóceme un poco más</p>
                     
                     <h3 data-i18n="about.personal.h3">Vida personal</h3>
@@ -63,7 +68,7 @@
                         En mi tiempo libre disfruto explorando <a href="aficiones.html" title="Ir a la sección de Mis aficiones">el cine de animación, el manga y la botánica</a>, escuchando <a href="musica.html" title="Descubrir mis grupos favoritos en Mi música">folk metal y música japonesa</a>, o recordando <a href="viajes.html" title="Ver mis destinos en Mis viajes">los viajes e intercambios culturales</a> que he realizado.
                     </p>
                     
-                    <h3 data-i18n="about.pro.h3">Vida profesional</h3>
+                    <h3 id="profesional" data-i18n="about.pro.h3">Vida profesional</h3>
                     <p data-i18n="about.pro.p1">
                         Aunque me interesa principalmente el desarrollo web, tanto frontend como backend, me gustaría probar diferentes áreas de trabajo.
                     </p>
@@ -82,7 +87,7 @@
             </section>
 
             <!-- SECCIÓN 2: Formación Académica (Tabla semántica) -->
-            <section>
+            <section id="formacion">
                 <h2 data-i18n="about.education.h2">Formación académica</h2>
                 <table>
                     <caption data-i18n="about.education.caption">Trayectoria universitaria y titulaciones cursadas</caption>
@@ -108,10 +113,10 @@
                 </table>
             </section>
 
-           <section>
+           <section id="avales">
                 <h2 data-i18n="about.endorsements.h2">Avales y referencias</h2>
                 <article>
-                    <h3>Edward Rolando Nuñez Valdez</h3>
+                    <h3 data-i18n="about.endorsements.name">Edward Rolando Nuñez Valdez</h3>
                     <dl>
                         <dt data-i18n="about.endorsements.role">Director de Trabajo Fin de Grado</dt>
                         <dd data-i18n="about.endorsements.desc">Profesor de la Universidad de Oviedo, Departamento de Informática (Área de Ciencia de la Computación e Inteligencia Artificial).</dd>
@@ -119,6 +124,33 @@
                 </article>
             </section>
         </main>
+
+        <!-- Buscador modal semántico -->
+        <dialog aria-label="Buscador del sitio web">
+            <form role="search" method="dialog">
+                <label>
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="search.label">Buscar contenido</span>
+                    <input type="search" name="q" placeholder="Buscar en el sitio web... (ej. Coraline, viajes, CV)" autocomplete="off" spellcheck="false" data-i18n="search.placeholder">
+                </label>
+                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal">
+                    <kbd>Esc</kbd>
+                </button>
+            </form>
+            <output aria-live="polite">
+                <!-- Se inyecta dinámicamente -->
+            </output>
+            <footer>
+                <small>
+                    <kbd>↑</kbd> <kbd>↓</kbd> <span data-i18n="search.hintNav">para navegar</span>
+                    <kbd>Enter</kbd> <span data-i18n="search.hintSelect">para abrir</span>
+                    <kbd>Esc</kbd> <span data-i18n="search.hintClose">para cerrar</span>
+                </small>
+            </footer>
+        </dialog>
 
         <footer>
             <section>
@@ -155,5 +187,6 @@
             </nav>
         </footer>
         <script src="js/i18n.js"></script>
+        <script src="js/buscador.js"></script>
     </body>
 </html>

@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Música favorita de Celia Bobo Rodríguez-Noriega">
-        <title data-i18n="music.meta.title">Mi música | Mi página personal</title>
+        <meta name="description" content="Música y bandas favoritas de Celia Bobo Rodríguez-Noriega">
+        <title data-i18n="music.meta.title">Música | Mi página personal</title>
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script>
@@ -27,6 +27,11 @@
                 <a href="musica.html" aria-current="page" data-i18n="nav.musica">Mi música</a>
             </nav>
             <nav aria-label="Navegación secundaria">
+                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span data-i18n="search.openBtn">Buscar</span>
+                    <kbd>/</kbd>
+                </button>
                 <a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a>
                 <label>
                     <span class="sr-only" data-i18n="lang.label">Seleccionar idioma</span>
@@ -50,12 +55,12 @@
             </header>
             <section>
                 <h2 data-i18n="music.section.h2">Mis artistas favoritos</h2>
-                <article>
+                <article id="saurom">
                     <figure>
-                        <img src="multimedia/img/saurom.png" alt="Logo de Saurom" title="Logo de la banda Saurom">
+                        <img src="multimedia/img/saurom.webp" alt="Logo de Saurom" title="Logo de la banda Saurom">
                         <figcaption data-i18n="music.saurom.imgCap">Logo de Saurom</figcaption>
                     </figure>
-                    <h3>Saurom</h3>
+                    <h3 data-i18n="music.saurom.h3">Saurom</h3>
                     <p data-i18n="music.saurom.p">
                         Saurom es una banda española de folk metal que conocí
                         a través de un amigo. Una de mis canciones favoritas
@@ -72,12 +77,12 @@
                         <figcaption data-i18n="music.saurom.audioCap">Pista de audio: No Seré Yo</figcaption>
                     </figure>
                 </article>
-                <article>
+                <article id="the-binary">
                     <figure>
                         <img src="multimedia/img/the-binary.webp" alt="Logo de The Binary" title="Logo de The Binary">
                         <figcaption data-i18n="music.binary.imgCap">Logo de The Binary</figcaption>
                     </figure>
-                    <h3>The Binary</h3>
+                    <h3 data-i18n="music.binary.h3">The Binary</h3>
                     <p data-i18n="music.binary.p1">
                         The Binary es una banda de J-pop y J-Rock japonesa. Originalmente contaba
                         con dos vocalistas, mido y Akamaru, pero esta segunda abandonó el grupo en 2024.
@@ -101,6 +106,34 @@
                 </article>
             </section>
         </main>
+
+        <!-- Buscador modal semántico -->
+        <dialog aria-label="Buscador del sitio web">
+            <form role="search" method="dialog">
+                <label>
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="search.label">Buscar contenido</span>
+                    <input type="search" name="q" placeholder="Buscar en el sitio web... (ej. Coraline, viajes, CV)" autocomplete="off" spellcheck="false" data-i18n="search.placeholder">
+                </label>
+                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal">
+                    <kbd>Esc</kbd>
+                </button>
+            </form>
+            <output aria-live="polite">
+                <!-- Se inyecta dinámicamente -->
+            </output>
+            <footer>
+                <small>
+                    <kbd>↑</kbd> <kbd>↓</kbd> <span data-i18n="search.hintNav">para navegar</span>
+                    <kbd>Enter</kbd> <span data-i18n="search.hintSelect">para abrir</span>
+                    <kbd>Esc</kbd> <span data-i18n="search.hintClose">para cerrar</span>
+                </small>
+            </footer>
+        </dialog>
+
         <footer>
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
@@ -131,11 +164,12 @@
                     <li><a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a></li>
                     <li><a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a></li>
                     <li><a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a></li>
-                    <li><a href="musica.html" data-i18n="nav.musica">Mi música</a></li>
+                    <li><a href="musica.html" aria-current="page" data-i18n="nav.musica">Mi música</a></li>
                     <li><a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a></li>
                 </ul>
             </nav>
         </footer>
         <script src="js/i18n.js"></script>
+        <script src="js/buscador.js"></script>
     </body>
 </html>

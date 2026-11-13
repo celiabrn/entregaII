@@ -27,6 +27,11 @@
                 <a href="musica.html" data-i18n="nav.musica">Mi música</a>
             </nav>
             <nav aria-label="Navegación secundaria">
+                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span data-i18n="search.openBtn">Buscar</span>
+                    <kbd>/</kbd>
+                </button>
                 <a href="ayuda.html" aria-current="page" data-i18n="nav.ayuda">Ayuda</a>
                 <label>
                     <span class="sr-only" data-i18n="lang.label">Seleccionar idioma</span>
@@ -49,7 +54,7 @@
                 <p data-i18n="help.header.p">Orientación sobre cómo navegar por el sitio web y preguntas frecuentes</p>
             </header>
 
-            <section>
+            <section id="guia">
                 <h2 data-i18n="help.navGuide.h2">Guía rápida de navegación</h2>
                 <article>
                     <h3 data-i18n="help.navGuide.h3">Estructura del sitio</h3>
@@ -64,7 +69,7 @@
                 </article>
             </section>
 
-            <section>
+            <section id="faq">
                 <h2 data-i18n="help.faq.h2">Preguntas frecuentes</h2>
                 <article>
                     <h3 data-i18n="help.faq.h3">Consultas habituales</h3>
@@ -83,6 +88,34 @@
                 </article>
             </section>
         </main>
+
+        <!-- Buscador modal semántico -->
+        <dialog aria-label="Buscador del sitio web">
+            <form role="search" method="dialog">
+                <label>
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only" data-i18n="search.label">Buscar contenido</span>
+                    <input type="search" name="q" placeholder="Buscar en el sitio web... (ej. Coraline, viajes, CV)" autocomplete="off" spellcheck="false" data-i18n="search.placeholder">
+                </label>
+                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal">
+                    <kbd>Esc</kbd>
+                </button>
+            </form>
+            <output aria-live="polite">
+                <!-- Se inyecta dinámicamente -->
+            </output>
+            <footer>
+                <small>
+                    <kbd>↑</kbd> <kbd>↓</kbd> <span data-i18n="search.hintNav">para navegar</span>
+                    <kbd>Enter</kbd> <span data-i18n="search.hintSelect">para abrir</span>
+                    <kbd>Esc</kbd> <span data-i18n="search.hintClose">para cerrar</span>
+                </small>
+            </footer>
+        </dialog>
+
         <footer>
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
@@ -114,10 +147,11 @@
                     <li><a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a></li>
                     <li><a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a></li>
                     <li><a href="musica.html" data-i18n="nav.musica">Mi música</a></li>
-                    <li><a href="ayuda.html" data-i18n="nav.ayuda">Ayuda</a></li>
+                    <li><a href="ayuda.html" aria-current="page" data-i18n="nav.ayuda">Ayuda</a></li>
                 </ul>
             </nav>
         </footer>
         <script src="js/i18n.js"></script>
+        <script src="js/buscador.js"></script>
     </body>
 </html>
