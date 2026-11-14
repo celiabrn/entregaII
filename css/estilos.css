@@ -331,7 +331,7 @@ main > section {
 /* ================== TARJETAS BASE (ARTICLES) ================== */
 article {
     background-color: var(--bg-surface);
-    padding: 2.25em;
+    padding: 1.5em 1em;
     border-radius: 0.875em;
     border: 0.0625em solid var(--border-hairline);
     border-top: 0.3125em solid var(--brand-primary);
@@ -449,7 +449,7 @@ article dt {
 
 article dd {
     margin: 0.35em 0 0 0;
-    padding: 0.5em 0 0.5em 1.1em;
+    padding: 0.5em 0.75em;
     border-left: 0.25em solid var(--accent-focus);
     background-color: var(--bg-canvas);
     border-radius: 0 0.4em 0.4em 0;
@@ -461,7 +461,7 @@ article details {
     width: 100%;
     border: 0.0625em solid var(--border-hairline);
     border-radius: 0.625em;
-    padding: 1.1em 1.35em;
+    padding: 0.85em 1em;
     margin-bottom: 1em;
     background-color: var(--bg-canvas);
     transition: border-color 200ms var(--ease-snappy),
@@ -1269,7 +1269,7 @@ body > footer nav a[aria-current="page"] {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     main > section > table {
         display: block;
         background-color: transparent;
@@ -1362,7 +1362,19 @@ body > footer nav a[aria-current="page"] {
     }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 768px) {
+    article {
+        padding: 2.25em;
+    }
+
+    article dd {
+        padding: 0.5em 0 0.5em 1.1em;
+    }
+
+    article details {
+        padding: 1.1em 1.35em;
+    }
+
     body > header {
         position: sticky;
         top: 0;
@@ -1583,6 +1595,58 @@ body > footer nav a[aria-current="page"] {
         grid-column: 1 / 2;
         grid-row: span 2;
         min-height: 22em;
+    }
+    
+    main > section:nth-of-type(3) > article figure img:nth-of-type(2),
+    main > section:nth-of-type(3) > article figure img:nth-of-type(3) {
+        grid-column: 2 / 3;
+        height: 10.5em;
+    }
+
+    main > section:nth-of-type(3) > article figure figcaption {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: 0.5556em;
+    }
+
+    /* PÁGINA DE MÚSICA */
+    main > section:nth-of-type(1):has(audio) > article {
+        display: grid;
+        grid-template-columns: 13.5em 1fr;
+        grid-template-rows: auto auto auto 1fr;
+        column-gap: 3em;
+        align-items: start;
+    }
+
+    main > section:nth-of-type(1):has(audio) > article > figure:has(img) {
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+        max-width: 100%;
+        margin: 0;
+        align-self: center;
+    }
+
+    main > section:nth-of-type(1):has(audio) > article > *:not(figure:has(img)) {
+        grid-column: 2 / 3;
+    }
+
+    main > section:nth-of-type(1):has(audio) > article > h3 {
+        margin-bottom: 0.2857em;
+    }
+
+    main > section:nth-of-type(1):has(audio) > article > p {
+        margin-bottom: 1em;
+    }
+
+    main > section:nth-of-type(1):has(audio) > article > figure:has(audio) {
+        align-self: end;
+    }
+
+    /* PIE DE PÁGINA */
+    body > footer {
+        grid-template-columns: 1fr auto;
+        align-items: start;
+        padding: 3em;
     }
 }
 
