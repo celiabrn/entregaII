@@ -7,6 +7,7 @@
         <title data-i18n="hobbies.meta.title">Aficiones | Mi página personal</title>
         <link rel="stylesheet" href="css/estilos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
         <script>
             (function() {
                 const idiomaGuardado = localStorage.getItem('idioma_pref');
@@ -71,6 +72,8 @@
                         <video controls preload="metadata" title="Reproductor de vídeo: tráiler oficial de la película Los mundos de Coraline en stop-motion">
                             <source src="multimedia/video/coraline.mp4" type="video/mp4">
                             Tu navegador no admite la reproducción de vídeo.
+                            <track kind="captions" src="multimedia/video/coraline-es.vtt" srclang="es" label="Español" default>
+                            <track kind="captions" src="multimedia/video/coraline-en.vtt" srclang="en" label="English">
                         </video>
                         <figcaption data-i18n="hobbies.coraline.videoCap">Tráiler oficial de la película Los mundos de Coraline</figcaption>
                     </figure>
@@ -95,6 +98,8 @@
                         <video controls preload="metadata" title="Reproductor de vídeo: adelanto de Witch Hat Atelier">
                             <source src="multimedia/video/wha.mp4" type="video/mp4">
                             Tu navegador no admite la reproducción de vídeo.
+                            <track kind="captions" src="multimedia/video/wha-es.vtt" srclang="es" label="Español" default>
+                            <track kind="captions" src="multimedia/video/wha-en.vtt" srclang="en" label="English">
                         </video>
                         <figcaption data-i18n="hobbies.wha.videoCap">Adelanto animado de la serie Witch Hat Atelier</figcaption>
                     </figure>

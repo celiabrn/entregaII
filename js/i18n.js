@@ -50,6 +50,14 @@ async function cambiarIdioma(idioma) {
             }
         });
 
+        // Actualizar subtítulos de vídeos
+        document.querySelectorAll('video').forEach(video => {
+            const pistas = video.textTracks;
+            for (let i = 0; i < pistas.length; i++) {
+                pistas[i].mode = (pistas[i].language === idioma) ? 'showing' : 'disabled';
+            }
+        });
+
         // Notificar cambio de idioma a otros módulos
         window.dispatchEvent(new CustomEvent('idiomacambiado', { detail: { idioma: idiomaValido } }));
     } catch (error) {
