@@ -252,7 +252,7 @@ main {
     width: 100%;
     max-width: 75em;
     margin: 0 auto;
-    padding: 2em 1.25em;
+    padding: 1.5em 0.75em;
     display: flex;
     flex-direction: column;
     gap: 2.25em;
@@ -331,7 +331,7 @@ main > section {
 /* ================== TARJETAS BASE (ARTICLES) ================== */
 article {
     background-color: var(--bg-surface);
-    padding: 1.5em 1em;
+    padding: 1.25em 0.9em;
     border-radius: 0.875em;
     border: 0.0625em solid var(--border-hairline);
     border-top: 0.3125em solid var(--brand-primary);
@@ -461,7 +461,7 @@ article details {
     width: 100%;
     border: 0.0625em solid var(--border-hairline);
     border-radius: 0.625em;
-    padding: 0.85em 1em;
+    padding: 0.75em 0.85em;
     margin-bottom: 1em;
     background-color: var(--bg-canvas);
     transition: border-color 200ms var(--ease-snappy),
@@ -489,7 +489,7 @@ article summary {
     font-weight: 700;
     color: var(--brand-deep);
     cursor: pointer;
-    list-style-position: outside;
+    list-style-position: inside;
     padding: 0.25em 0;
     transition: color 150ms ease;
 }
@@ -555,7 +555,7 @@ main > section:first-of-type:not(:has(article > figure)) {
     flex-direction: column;
     align-items: flex-start;
     background-color: var(--bg-surface);
-    padding: 2.5em;
+    padding: 1.25em 1em;
     border-radius: 1em;
     border: 0.0625em solid var(--border-hairline);
     border-left: 0.4em solid var(--accent-focus);
@@ -1363,6 +1363,22 @@ body > footer nav a[aria-current="page"] {
 }
 
 @media (min-width: 768px) {
+    main {
+        padding: 2em 1.25em;
+    }
+
+    article {
+        padding: 2.25em;
+    }
+
+    article dd {
+        padding: 0.5em 0 0.5em 1.1em;
+    }
+
+    article details {
+        padding: 1.1em 1.35em;
+    }
+    
     article {
         padding: 2.25em;
     }
