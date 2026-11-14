@@ -1699,7 +1699,7 @@ body > footer nav a[aria-current="page"] {
     }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
     /* INICIO Y SOBRE MÍ EN DOS COLUMNAS (ESCRITORIO) */
     main > section:first-of-type:not(:has(article > figure)) {
         display: grid;
