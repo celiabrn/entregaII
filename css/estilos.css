@@ -1536,49 +1536,6 @@ body > footer nav a[aria-current="page"] {
         padding: 0.5556em 1.2778em;
     }
 
-    /* Restaurar posición de la imagen de perfil en el grid */
-    main > section:first-of-type > img {
-        order: 0;
-        margin: 0;
-        grid-column: 1 / 2;
-        grid-row: 1 / -1;
-        width: 16.5em;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 50%;
-        align-self: center;
-    }
-
-    /* INICIO Y SOBRE MÍ */
-    main > section:first-of-type:not(:has(article > figure)) {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto auto auto 1fr;
-        column-gap: 3em;
-        padding: 3em 3.5em;
-    }
-
-    main > section:first-of-type > img {
-        grid-column: 1 / 2;
-        grid-row: 1 / -1;
-        width: 16.5em;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 50%;
-        align-self: center;
-        margin: 0;
-    }
-
-    main > section:first-of-type:not(:has(article > figure)) > *:not(img) {
-        grid-column: 2 / 3;
-    }
-
-    main > section:first-of-type:not(:has(article > figure)) > a {
-        align-self: start;
-    }
-
     /* PÁGINA AFICIONES: Animales en tablet/desktop */
     main > section:nth-of-type(2):has(figure) > article {
         flex-direction: row;
@@ -1677,6 +1634,37 @@ body > footer {
 }
 
 @media (min-width: 960px) {
+    /* INICIO Y SOBRE MÍ EN DOS COLUMNAS (ESCRITORIO) */
+    main > section:first-of-type:not(:has(article > figure)) {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto auto 1fr;
+        column-gap: 3em;
+        padding: 3em 3.5em;
+    }
+
+    main > section:first-of-type > img {
+        order: 0;
+        margin: 0;
+        grid-column: 1 / 2;
+        grid-row: 1 / -1;
+        width: 16.5em;
+        max-width: 16.5em;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        align-self: center;
+    }
+
+    main > section:first-of-type:not(:has(article > figure)) > *:not(img) {
+        grid-column: 2 / 3;
+    }
+
+    main > section:first-of-type:not(:has(article > figure)) > a {
+        align-self: start;
+    }
+    
     /* Ajustes para el navegador de escritorio y pantallas grandes */
     body > header {
         flex-wrap: nowrap;
