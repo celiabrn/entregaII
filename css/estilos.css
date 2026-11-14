@@ -1667,7 +1667,11 @@ body > footer nav a[aria-current="page"] {
     body > footer {
         grid-template-columns: 1fr auto;
         align-items: start;
-        padding: 3em;
+        padding: 2.5em 1.5em;
+    }
+
+    body > footer > nav:last-of-type {
+        grid-column: 1 / -1;
     }
 }
 
