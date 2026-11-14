@@ -594,9 +594,9 @@ main > section:first-of-type article a[download]:active {
     transform: translateY(0);
 }
 
-/* ================== 2. TABLAS SEMÁNTICAS (FORMACIÓN ACADÉMICA) ================== */
+/* 2. Tablas semánticas (Formación académica) */
 main > section:has(table) {
-    display: block;
+    display: block; /* Anula el flexbox de "main > section" de forma natural */
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
@@ -605,25 +605,24 @@ main > section:has(table) {
 
 main > section > table {
     width: 100%;
-    margin: 16px 0 0 0;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: var(--bg-surface);
+    max-width: none;
+    margin: 12px 0 0 0;
+    border-collapse: collapse;
+    table-layout: auto;
+    background-color: #ffffff;
     border-radius: 12px;
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-hairline);
-    font-variant-numeric: tabular-nums; /* Alineación óptica de fechas */
+    border: 1px solid rgba(16, 42, 67, 0.12);
 }
 
-/* Subtítulo integrado arriba como cabecera contextual clara */
 main > section > table caption {
-    caption-side: top;
+    caption-side: bottom;
+    margin-top: 12px;
+    font-size: 14.4px;
+    color: var(--text-primary);
+    opacity: 0.8;
     text-align: center;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-    padding: 0 8px;
 }
 
 main > section > table thead {
@@ -631,45 +630,22 @@ main > section > table thead {
     color: #ffffff;
 }
 
-/* Redondeo limpio sin depender de overflow: hidden */
-main > section > table thead tr:first-child th:first-child {
-    border-top-left-radius: 11px;
-}
-
-main > section > table thead tr:first-child th:last-child {
-    border-top-right-radius: 11px;
-}
-
-main > section > table tbody tr:last-child th:first-child {
-    border-bottom-left-radius: 11px;
-}
-
-main > section > table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 11px;
-}
-
 main > section > table th,
 main > section > table td {
     padding: 16px 24px;
     text-align: left;
-    border-bottom: 1px solid var(--border-hairline);
+    border-bottom: 1px solid rgba(16, 42, 67, 0.1);
     vertical-align: middle;
-    line-height: 1.5;
-}
-
-main > section > table tbody tr:last-child th,
-main > section > table tbody tr:last-child td {
-    border-bottom: none;
+    line-height: 1.55;
 }
 
 main > section > table thead th {
     font-weight: 700;
-    font-size: 14.5px;
+    font-size: 15px;
     letter-spacing: 0.02em;
-    border-bottom: none;
 }
 
-/* Distribución equilibrada en escritorio */
+/* Distribución equilibrada de las 3 columnas en escritorio */
 main > section > table th:nth-child(1),
 main > section > table td:nth-child(1) {
     width: 24%;
@@ -686,15 +662,15 @@ main > section > table td:nth-child(3) {
 }
 
 main > section > table tbody tr {
-    transition: background-color 150ms var(--ease-snappy);
+    transition: background-color 150ms ease;
 }
 
 main > section > table tbody tr:nth-child(even) {
-    background-color: var(--bg-subtle);
+    background-color: rgba(16, 42, 67, 0.03);
 }
 
 main > section > table tbody tr:hover {
-    background-color: var(--accent-soft);
+    background-color: rgba(16, 42, 67, 0.06);
 }
 
 main > section > table tbody th {
@@ -1269,23 +1245,19 @@ body > footer nav a[aria-current="page"] {
 }
 
 @media (max-width: 768px) {
-    main > section > table {
+    main > section > table,
+    main > section > table thead,
+    main > section > table tbody,
+    main > section > table th,
+    main > section > table td,
+    main > section > table tr {
         display: block;
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-        border-radius: 0;
-    }
-
-    main > section > table caption {
-        display: block;
-        text-align: center;
-        margin-bottom: 16px;
+        width: 100% !important;
     }
 
     main > section > table thead {
         position: absolute;
-        width: 1px;
+        width: 1px !important;
         height: 1px;
         padding: 0;
         margin: -1px;
@@ -1295,69 +1267,23 @@ body > footer nav a[aria-current="page"] {
         border: 0;
     }
 
-    main > section > table tbody {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        width: 100%;
-    }
-
     main > section > table tbody tr {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: var(--bg-surface);
-        border: 1px solid var(--border-hairline);
-        border-left: 4px solid var(--brand-primary);
-        border-radius: 10px;
-        box-shadow: var(--shadow-sm);
-        overflow: hidden;
+        border-bottom: 2px solid rgba(16, 42, 67, 0.16);
+        padding: 8px 0;
     }
 
-    main > section > table tbody tr:nth-child(even) {
-        background-color: var(--bg-surface);
-    }
-
-    main > section > table tbody th,
-    main > section > table tbody td {
-        display: block;
-        width: 100% !important;
+    main > section > table tbody tr:last-child {
         border-bottom: none;
-        border-radius: 0 !important;
     }
 
-    /* Celda 1: Período (Cabecera de la tarjeta) */
-    main > section > table tbody th[scope="row"] {
-        background-color: var(--bg-subtle);
-        color: var(--brand-primary);
-        font-size: 13.5px;
-        padding: 10px 16px;
-        border-bottom: 1px solid var(--border-hairline);
+    main > section > table tbody th {
+        background-color: rgba(16, 42, 67, 0.06);
+        border-bottom: 1px solid rgba(16, 42, 67, 0.08);
     }
 
-    /* Celda 2: Titulación (Elemento principal de foco) */
-    main > section > table tbody td:nth-of-type(1) {
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 17px;
-        font-weight: 700;
-        color: var(--brand-deep);
-        padding: 14px 16px 4px 16px;
-    }
-
-    /* Celda 3: Institución (Metadato secundario con icono contextual) */
-    main > section > table tbody td:nth-of-type(2) {
-        font-size: 14.5px;
-        color: var(--text-secondary);
-        padding: 0 16px 14px 16px;
-    }
-
-    main > section > table tbody td:nth-of-type(2)::before {
-        content: "\f19c"; /* fa-building-columns */
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
-        font-size: 13px;
-        color: var(--accent-focus);
-        margin-right: 8px;
+    main > section > table tbody td {
+        padding-top: 10.4px;
+        padding-bottom: 10.4px;
     }
 }
 
