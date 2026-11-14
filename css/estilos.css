@@ -1245,7 +1245,7 @@ body > footer nav ul {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 1em 1.5em;
+    gap: 0.5em 0.9em;
 }
 
 body > footer nav a {
@@ -1664,10 +1664,11 @@ body > footer nav a[aria-current="page"] {
     }
 
     /* PIE DE PÁGINA */
-    body > footer {
+body > footer {
         grid-template-columns: 1fr auto;
         align-items: start;
         padding: 2.5em 1.5em;
+        gap: 1.5em 2em;
     }
 
     body > footer > nav:last-of-type {
