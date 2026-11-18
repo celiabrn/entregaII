@@ -184,10 +184,5 @@
             "label": "Resume PDF",
             "query": "Resume"
         }
-    ],
-    "ui": {
-        "tituloSugerencias": "Quick suggestions:",
-        "sinResultados": "No results found for",
-        "consejoSinResultados": "Try searching for other words like movies, travels, music, botany or education."
-    }
+    ]
 }

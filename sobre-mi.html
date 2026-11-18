@@ -20,14 +20,14 @@
         <a href="#main-content" data-i18n="skip.link">Saltar al contenido principal</a>
         <header>
             <h1><a href="index.html" data-i18n="header.title">Mi página personal</a></h1>
-            <nav aria-label="Navegación principal">
+            <nav aria-label="Navegación principal" data-i18n-aria-label="aria.mainNav">
                 <a href="sobre-mi.html" aria-current="page" data-i18n="nav.sobreMi">Sobre mí</a>
                 <a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a>
                 <a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a>
                 <a href="musica.html" data-i18n="nav.musica">Mi música</a>
             </nav>
-            <nav aria-label="Navegación secundaria">
-                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio">
+            <nav aria-label="Navegación secundaria" data-i18n-aria-label="aria.secondaryNav">
+                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio" data-i18n-aria-label="aria.searchOpen">
                     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
                     <span data-i18n="search.openBtn">Buscar</span>
                     <kbd>/</kbd>
@@ -44,7 +44,7 @@
         </header>
 
         <main id="main-content">
-            <nav aria-label="Migas de pan">
+            <nav aria-label="Migas de pan" data-i18n-aria-label="aria.breadcrumb">
                 <ol>
                     <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
                     <li aria-current="page" data-i18n="nav.sobreMi">Sobre mí</li>
@@ -54,7 +54,7 @@
             <!-- SECCIÓN 1: Presentación y descarga de CV -->
             <section id="presentacion">
                 <h2 data-i18n="nav.sobreMi">Sobre mí</h2>
-                <img src="multimedia/img/foto-perfil.webp" alt="Fotografía de Celia Bobo Rodríguez-Noriega" height="2048" width="2048">
+                <img src="multimedia/img/foto-perfil.webp" alt="Fotografía de Celia Bobo Rodríguez-Noriega" data-i18n-alt="alt.profilePhoto" height="2048" width="2048">
                 
                 <article id="personal">
                     <p data-i18n="about.subtitle">Conóceme un poco más</p>
@@ -73,13 +73,13 @@
                         Aunque me interesa principalmente el desarrollo web, tanto frontend como backend, me gustaría probar diferentes áreas de trabajo.
                     </p>
                     <p>
-                        <span data-i18n="about.pro.p2">Mi correo de contacto es</span> <a href="mailto:celia.boborn@gmail.com" title="Abrir cliente de correo para escribir a Celia">celia.boborn@gmail.com</a>. 
-                        <span data-i18n="about.pro.socialText">También puedes consultar mi perfil de código en</span> <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Ver perfil de GitHub">GitHub</a> <span data-i18n="about.pro.socialText2">o conectar conmigo en</span> <a href="https://www.linkedin.com/in/celia-bobo-rodr%C3%ADguez-noriega-aa6213356/" target="_blank" rel="noopener noreferrer" title="Ver perfil de LinkedIn">LinkedIn</a>.
+                        <span data-i18n="about.pro.p2">Mi correo de contacto es</span> <a href="mailto:celia.boborn@gmail.com" title="Abrir cliente de correo para escribir a Celia" data-i18n-title="title.mailClient">celia.boborn@gmail.com</a>. 
+                        <span data-i18n="about.pro.socialText">También puedes consultar mi perfil de código en</span> <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Ver perfil de GitHub" data-i18n-title="title.githubView">GitHub</a> <span data-i18n="about.pro.socialText2">o conectar conmigo en</span> <a href="https://www.linkedin.com/in/celia-bobo-rodr%C3%ADguez-noriega-aa6213356/" target="_blank" rel="noopener noreferrer" title="Ver perfil de LinkedIn" data-i18n-title="title.linkedinView">LinkedIn</a>.
                     </p>
 
                     <!-- Enlace semántico de descarga directa del CV en PDF -->
                     <p>
-                        <a href="multimedia/docs/cv-celia-bobo.pdf" download="CV-Celia-Bobo-Rodriguez-Noriega.pdf" title="Descargar currículum vitae completo en formato PDF" data-i18n="about.cv.download">
+                        <a href="multimedia/docs/cv-celia-bobo.pdf" download="CV-Celia-Bobo-Rodriguez-Noriega.pdf" title="Descargar currículum vitae completo en formato PDF" data-i18n-title="title.cvDownload" data-i18n="about.cv.download">
                             <span class="fa-solid fa-file-pdf" aria-hidden="true"></span> Descargar Currículum (PDF)
                         </a>
                     </p>
@@ -126,17 +126,17 @@
         </main>
 
         <!-- Buscador modal semántico -->
-        <dialog aria-label="Buscador del sitio web">
+        <dialog aria-label="Buscador del sitio web" data-i18n-aria-label="aria.searchDialog">
             <form role="search" method="dialog">
                 <label for="campo-busqueda">
                     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
                     <span class="sr-only" data-i18n="search.label">Buscar contenido</span>
                     <input id="campo-busqueda" type="search" name="q" placeholder="Buscar en el sitio web... (ej. Coraline, viajes, CV)" autocomplete="off" spellcheck="false" data-i18n="search.placeholder">
                 </label>
-                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto">
+                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto" data-i18n-aria-label="aria.searchClear">
                     <span class="fa-solid fa-xmark" aria-hidden="true"></span>
                 </button>
-                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal">
+                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal" data-i18n-aria-label="aria.searchClose">
                     <kbd>Esc</kbd>
                 </button>
             </form>
@@ -156,25 +156,25 @@
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
                 <p data-i18n="footer.master">Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
-                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
+                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia" data-i18n-title="title.mailFooter">celia.boborn@gmail.com</a></p>
                 <p><span data-i18n="footer.lastMod">Última actualización:</span> <time datetime="2026-11-12" data-i18n="footer.date">12 de noviembre de 2026</time></p>
             </section>
-            <nav aria-label="Redes sociales y perfiles profesionales">
+            <nav aria-label="Redes sociales y perfiles profesionales" data-i18n-aria-label="aria.social">
                 <h2 data-i18n="footer.social">Perfiles</h2>
                 <ul>
                     <li>
-                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia">
+                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia" data-i18n-title="title.github">
                             <span class="fa-brands fa-github" aria-hidden="true"></span> GitHub
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/celia-bobo-rodr%C3%ADguez-noriega-aa6213356/" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia">
+                        <a href="https://www.linkedin.com/in/celia-bobo-rodr%C3%ADguez-noriega-aa6213356/" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia" data-i18n-title="title.linkedin">
                             <span class="fa-brands fa-linkedin" aria-hidden="true"></span> LinkedIn
                         </a>
                     </li>             
                 </ul>
             </nav>
-            <nav aria-label="Mapa del sitio">
+            <nav aria-label="Mapa del sitio" data-i18n-aria-label="aria.sitemap">
                 <h2 data-i18n="footer.sitemap">Mapa del sitio</h2>
                 <ul>
                     <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>

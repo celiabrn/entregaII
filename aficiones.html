@@ -21,14 +21,14 @@
         <a href="#main-content" data-i18n="skip.link">Saltar al contenido principal</a>
         <header>
             <h1><a href="index.html" data-i18n="header.title">Mi página personal</a></h1>
-            <nav aria-label="Navegación principal">
+            <nav aria-label="Navegación principal" data-i18n-aria-label="aria.mainNav">
                 <a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a>
                 <a href="aficiones.html" aria-current="page" data-i18n="nav.aficiones">Mis aficiones</a>
                 <a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a>
                 <a href="musica.html" data-i18n="nav.musica">Mi música</a>
             </nav>
-            <nav aria-label="Navegación secundaria">
-                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio">
+            <nav aria-label="Navegación secundaria" data-i18n-aria-label="aria.secondaryNav">
+                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio" data-i18n-aria-label="aria.searchOpen">
                     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
                     <span data-i18n="search.openBtn">Buscar</span>
                     <kbd>/</kbd>
@@ -44,7 +44,7 @@
             </nav>
         </header>
         <main id="main-content">
-            <nav aria-label="Migas de pan">
+            <nav aria-label="Migas de pan" data-i18n-aria-label="aria.breadcrumb">
                 <ol>
                     <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>
                     <li aria-current="page" data-i18n="nav.aficiones">Mis aficiones</li>
@@ -69,7 +69,7 @@
                         </p>
                     </header>
                     <figure>
-                        <video controls preload="metadata" title="Reproductor de vídeo: tráiler oficial de la película Los mundos de Coraline en stop-motion">
+                        <video controls preload="metadata" title="Reproductor de vídeo: tráiler oficial de la película Los mundos de Coraline en stop-motion" data-i18n-title="title.coralineVideo">
                             <source src="multimedia/video/coraline.mp4" type="video/mp4">
                             <track kind="captions" src="multimedia/video/coraline-es.vtt" srclang="es" label="Español" default>
                             <track kind="captions" src="multimedia/video/coraline-en.vtt" srclang="en" label="English">
@@ -78,7 +78,7 @@
                         <figcaption data-i18n="hobbies.coraline.videoCap">Tráiler oficial de la película Los mundos de Coraline</figcaption>
                     </figure>
                     <figure>
-                        <img src="multimedia/img/coraline-cover.webp" alt="Póster oficial de la película Los mundos de Coraline mostrando a la protagonista con un fondo tétrico de botones y misterio" title="Póster oficial de Los mundos de Coraline" width="867" height="1300">
+                        <img src="multimedia/img/coraline-cover.webp" alt="Póster oficial de la película Los mundos de Coraline mostrando a la protagonista con un fondo tétrico de botones y misterio" data-i18n-alt="alt.coraline" title="Póster oficial de Los mundos de Coraline" data-i18n-title="title.coralineImg" width="867" height="1300">
                         <figcaption data-i18n="hobbies.coraline.imgCap">Póster de la película</figcaption>
                     </figure>
                 </article>
@@ -95,7 +95,7 @@
                         </p>
                     </header>
                     <figure>
-                        <video controls preload="metadata" title="Reproductor de vídeo: adelanto de Witch Hat Atelier">
+                        <video controls preload="metadata" title="Reproductor de vídeo: adelanto de Witch Hat Atelier" data-i18n-title="title.whaVideo">
                             <source src="multimedia/video/wha.mp4" type="video/mp4">
                             <track kind="captions" src="multimedia/video/wha-es.vtt" srclang="es" label="Español" default>
                             <track kind="captions" src="multimedia/video/wha-en.vtt" srclang="en" label="English">
@@ -104,7 +104,7 @@
                         <figcaption data-i18n="hobbies.wha.videoCap">Adelanto animado de la serie Witch Hat Atelier</figcaption>
                     </figure>
                     <figure>
-                        <img src="multimedia/img/wha-cover.webp" alt="Cubierta del primer volúmen del manga Witch Hat Atelier" title="Cubierta del primer volumen de Witch Hat Atelier" width="702" height="1000">
+                        <img src="multimedia/img/wha-cover.webp" alt="Cubierta del primer volumen del manga Witch Hat Atelier" data-i18n-alt="alt.wha" title="Cubierta del primer volumen de Witch Hat Atelier" data-i18n-title="title.whaImg" width="702" height="1000">
                         <figcaption data-i18n="hobbies.wha.imgCap">Cubierta del primer volúmen</figcaption>
                     </figure>
                 </article>
@@ -115,7 +115,7 @@
                 <h2 data-i18n="hobbies.animals.section">Animales</h2>
                 <article>
                     <figure>
-                        <img src="multimedia/img/perros.webp" loading="lazy" alt="Fotografía de mis perros Otto y Orión" title="Otto y Orión" width="2000" height="1500">
+                        <img src="multimedia/img/perros.webp" loading="lazy" alt="Fotografía de mis perros Otto y Orión" data-i18n-alt="alt.dogs" title="Otto y Orión" data-i18n-title="title.dogsImg" width="2000" height="1500">
                         <figcaption data-i18n="hobbies.animals.cap">Mis perros Otto y Orión</figcaption>
                     </figure>
                     <header>
@@ -139,9 +139,9 @@
                         para poder observar los cambios de cada una.
                     </p>
                     <figure>
-                        <img src="multimedia/img/botanico1.webp" loading="lazy" alt="Flores de alcachofa en la huerta del botánico" title="Flores de alcachofa en el Jardín Botánico de Gijón" width="2000" height="1500">
-                        <img src="multimedia/img/botanico2.webp" loading="lazy" alt="Flores de azalea en el botánico" title="Flores de azalea en el Jardín Botánico de Gijón" width="1153" height="2048">
-                        <img src="multimedia/img/botanico3.webp" loading="lazy" alt="Nenúfares en flor en el botánico" title="Nenúfares en flor en el Jardín Botánico de Gijón" width="1536" height="2048">
+                        <img src="multimedia/img/botanico1.webp" loading="lazy" alt="Flores de alcachofa en la huerta del botánico" data-i18n-alt="alt.botany1" title="Flores de alcachofa en el Jardín Botánico de Gijón" data-i18n-title="title.botany1Img" width="2000" height="1500">
+                        <img src="multimedia/img/botanico2.webp" loading="lazy" alt="Flores de azalea en el botánico" data-i18n-alt="alt.botany2" title="Flores de azalea en el Jardín Botánico de Gijón" data-i18n-title="title.botany2Img" width="1153" height="2048">
+                        <img src="multimedia/img/botanico3.webp" loading="lazy" alt="Nenúfares en flor en el botánico" data-i18n-alt="alt.botany3" title="Nenúfares en flor en el Jardín Botánico de Gijón" data-i18n-title="title.botany3Img" width="1536" height="2048">
                         <figcaption data-i18n="hobbies.botany.cap">Fotos tomadas en diferentes visitas al Jardín Botánico de Gijón</figcaption>
                     </figure>
                 </article>
@@ -149,17 +149,17 @@
         </main>
 
         <!-- Buscador modal semántico -->
-        <dialog aria-label="Buscador del sitio web">
+        <dialog aria-label="Buscador del sitio web" data-i18n-aria-label="aria.searchDialog">
             <form role="search" method="dialog">
                 <label for="campo-busqueda">
                     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
                     <span class="sr-only" data-i18n="search.label">Buscar contenido</span>
                     <input id="campo-busqueda" type="search" name="q" placeholder="Buscar en el sitio web... (ej. Coraline, viajes, CV)" autocomplete="off" spellcheck="false" data-i18n="search.placeholder">
                 </label>
-                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto">
+                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto" data-i18n-aria-label="aria.searchClear">
                     <span class="fa-solid fa-xmark" aria-hidden="true"></span>
                 </button>
-                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal">
+                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal" data-i18n-aria-label="aria.searchClose">
                     <kbd>Esc</kbd>
                 </button>
             </form>
@@ -179,25 +179,25 @@
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
                 <p data-i18n="footer.master">Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
-                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
+                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia" data-i18n-title="title.mailFooter">celia.boborn@gmail.com</a></p>
                 <p><span data-i18n="footer.lastMod">Última actualización:</span> <time datetime="2026-11-12" data-i18n="footer.date">12 de noviembre de 2026</time></p>
             </section>
-            <nav aria-label="Redes sociales y perfiles profesionales">
+            <nav aria-label="Redes sociales y perfiles profesionales" data-i18n-aria-label="aria.social">
                 <h2 data-i18n="footer.social">Perfiles</h2>
                 <ul>
                     <li>
-                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia (se abre en una pestaña nueva)" aria-label="Perfil de GitHub de Celia (se abre en una pestaña nueva)">
+                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia (se abre en una pestaña nueva)" data-i18n-title="title.githubExt" aria-label="Perfil de GitHub de Celia (se abre en una pestaña nueva)" data-i18n-aria-label="aria.github">
                             <span class="fa-brands fa-github" aria-hidden="true"></span> GitHub
                         </a>
                     </li>
                     <li>
-                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)" aria-label="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)">
+                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)" data-i18n-title="title.linkedinExt" aria-label="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)" data-i18n-aria-label="aria.linkedin">
                             <span class="fa-brands fa-linkedin" aria-hidden="true"></span> LinkedIn
                         </a>
                     </li>           
                 </ul>
             </nav>
-            <nav aria-label="Mapa del sitio">
+            <nav aria-label="Mapa del sitio" data-i18n-aria-label="aria.sitemap">
                 <h2 data-i18n="footer.sitemap">Mapa del sitio</h2>
                 <ul>
                     <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>

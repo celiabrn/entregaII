@@ -50,6 +50,20 @@ async function cambiarIdioma(idioma) {
             }
         });
 
+        // Actualizar textos alternativos de imágenes y etiquetas accesibles (aria-label)
+        const atributosTraducibles = [
+            ['data-i18n-alt', 'alt'],
+            ['data-i18n-aria-label', 'aria-label']
+        ];
+        atributosTraducibles.forEach(([atributoClave, atributoDestino]) => {
+            document.querySelectorAll(`[${atributoClave}]`).forEach(el => {
+                const clave = el.getAttribute(atributoClave);
+                if (diccionario[clave]) {
+                    el.setAttribute(atributoDestino, diccionario[clave]);
+                }
+            });
+        });
+
         // Actualizar subtítulos de vídeos
         document.querySelectorAll('video').forEach(video => {
             const pistas = video.textTracks;

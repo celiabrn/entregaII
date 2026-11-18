@@ -20,14 +20,14 @@
         <a href="#main-content" data-i18n="skip.link">Saltar al contenido principal</a>
         <header>
             <h1><a href="index.html" data-i18n="header.title">Mi página personal</a></h1>
-            <nav aria-label="Navegación principal">
+            <nav aria-label="Navegación principal" data-i18n-aria-label="aria.mainNav">
                 <a href="sobre-mi.html" data-i18n="nav.sobreMi">Sobre mí</a>
                 <a href="aficiones.html" data-i18n="nav.aficiones">Mis aficiones</a>
                 <a href="viajes.html" data-i18n="nav.viajes">Mis viajes</a>
                 <a href="musica.html" data-i18n="nav.musica">Mi música</a>
             </nav>
-            <nav aria-label="Navegación secundaria">
-                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio">
+            <nav aria-label="Navegación secundaria" data-i18n-aria-label="aria.secondaryNav">
+                <button type="button" aria-haspopup="dialog" aria-expanded="false" data-i18n-title="search.openTitle" title="Buscar en el sitio web (Atajo: /)" aria-label="Buscar en el sitio" data-i18n-aria-label="aria.searchOpen">
                     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
                     <span data-i18n="search.openBtn">Buscar</span>
                     <kbd>/</kbd>
@@ -60,12 +60,12 @@
                     aficiones y otros intereses.
                 </p>
 
-                <a href="sobre-mi.html" title="Ir a la sección con información personal y académica" data-i18n="index.btnAbout">
+                <a href="sobre-mi.html" title="Ir a la sección con información personal y académica" data-i18n-title="title.aboutLink" data-i18n="index.btnAbout">
                     Acerca de mí
                 </a>
                 <img
                     src="multimedia/img/foto-perfil.webp"
-                    alt="Fotografía de Celia Bobo Rodríguez-Noriega"
+                    alt="Fotografía de Celia Bobo Rodríguez-Noriega" data-i18n-alt="alt.profilePhoto"
                     height="2048"
                     width="2048"
                 >
@@ -81,7 +81,7 @@
                         Descubre algunas de las actividades e intereses: mis películas y series favoritas, mis mascotas o mis visitas al Jardín Botánico de Gijón.
 
                     </p>
-                    <a href="aficiones.html" title="Explorar películas, mascotas y botánica" data-i18n="index.interests.hobbies.btn">Ver aficiones</a>
+                    <a href="aficiones.html" title="Explorar películas, mascotas y botánica" data-i18n-title="title.hobbiesCard" data-i18n="index.interests.hobbies.btn">Ver aficiones</a>
                 </article>
 
                 <article>
@@ -89,7 +89,7 @@
                     <p data-i18n="index.interests.travels.p">
                         Descubre algunos de los viajes que he realizado: Sanabria, Alemania y Chicago.
                     </p>
-                    <a href="viajes.html" title="Explorar viajes a Sanabria, Alemania y Estados Unidos" data-i18n="index.interests.travels.btn">Ver viajes</a>
+                    <a href="viajes.html" title="Explorar viajes a Sanabria, Alemania y Estados Unidos" data-i18n-title="title.travelsCard" data-i18n="index.interests.travels.btn">Ver viajes</a>
                 </article>
 
                 <article>
@@ -97,23 +97,23 @@
                     <p data-i18n="index.interests.music.p">
                         Descubre algunas de mis canciones y bandas favoritas, desde música española hasta bandas japonesas.
                     </p>
-                    <a href="musica.html" title="Escuchar grupos y canciones favoritas" data-i18n="index.interests.music.btn">Ver música</a>
+                    <a href="musica.html" title="Escuchar grupos y canciones favoritas" data-i18n-title="title.musicCard" data-i18n="index.interests.music.btn">Ver música</a>
                 </article>
             </section>
         </main>
 
         <!-- Buscador modal semántico -->
-        <dialog aria-label="Buscador del sitio web">
+        <dialog aria-label="Buscador del sitio web" data-i18n-aria-label="aria.searchDialog">
             <form role="search" method="dialog">
                 <label for="campo-busqueda">
                     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
                     <span class="sr-only" data-i18n="search.label">Buscar contenido</span>
                     <input id="campo-busqueda" type="search" name="q" placeholder="Buscar en el sitio web... (ej. Coraline, viajes, CV)" autocomplete="off" spellcheck="false" data-i18n="search.placeholder">
                 </label>
-                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto">
+                <button type="reset" title="Borrar búsqueda" data-i18n-title="search.clear" aria-label="Borrar texto" data-i18n-aria-label="aria.searchClear">
                     <span class="fa-solid fa-xmark" aria-hidden="true"></span>
                 </button>
-                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal">
+                <button type="submit" value="cancel" title="Cerrar buscador (Escape)" data-i18n-title="search.close" aria-label="Cerrar modal" data-i18n-aria-label="aria.searchClose">
                     <kbd>Esc</kbd>
                 </button>
             </form>
@@ -133,25 +133,25 @@
             <section>
                 <h2>Celia Bobo Rodríguez-Noriega</h2>
                 <p data-i18n="footer.master">Página web personal · Máster Universitario en Ingeniería Web (Universidad de Oviedo)</p>
-                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia">celia.boborn@gmail.com</a></p>
+                <p><span data-i18n="footer.contact">Contacto:</span> <a href="mailto:celia.boborn@gmail.com" title="Enviar un correo electrónico a Celia" data-i18n-title="title.mailFooter">celia.boborn@gmail.com</a></p>
                 <p><span data-i18n="footer.lastMod">Última actualización:</span> <time datetime="2026-11-12" data-i18n="footer.date">12 de noviembre de 2026</time></p>
             </section>
-            <nav aria-label="Redes sociales y perfiles profesionales">
+            <nav aria-label="Redes sociales y perfiles profesionales" data-i18n-aria-label="aria.social">
                 <h2 data-i18n="footer.social">Perfiles</h2>
                 <ul>
                     <li>
-                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia (se abre en una pestaña nueva)" aria-label="Perfil de GitHub de Celia (se abre en una pestaña nueva)">
+                        <a href="https://github.com/celiabrn" target="_blank" rel="noopener noreferrer" title="Perfil de GitHub de Celia (se abre en una pestaña nueva)" data-i18n-title="title.githubExt" aria-label="Perfil de GitHub de Celia (se abre en una pestaña nueva)" data-i18n-aria-label="aria.github">
                             <span class="fa-brands fa-github" aria-hidden="true"></span> GitHub
                         </a>
                     </li>
                     <li>
-                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)" aria-label="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)">
+                        <a href="https://linkedin.com/in/celia-bobo-rodríguez-noriega" target="_blank" rel="noopener noreferrer" title="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)" data-i18n-title="title.linkedinExt" aria-label="Perfil de LinkedIn de Celia (se abre en una pestaña nueva)" data-i18n-aria-label="aria.linkedin">
                             <span class="fa-brands fa-linkedin" aria-hidden="true"></span> LinkedIn
                         </a>
                     </li>           
                 </ul>
             </nav>
-            <nav aria-label="Mapa del sitio">
+            <nav aria-label="Mapa del sitio" data-i18n-aria-label="aria.sitemap">
                 <h2 data-i18n="footer.sitemap">Mapa del sitio</h2>
                 <ul>
                     <li><a href="index.html" data-i18n="nav.inicio">Inicio</a></li>

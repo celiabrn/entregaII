@@ -184,10 +184,5 @@
             "label": "Currículum PDF",
             "query": "Currículum"
         }
-    ],
-    "ui": {
-        "tituloSugerencias": "Sugerencias habituales:",
-        "sinResultados": "No se encontraron resultados para",
-        "consejoSinResultados": "Prueba a buscar otras palabras como películas, viajes, música, botánica o formación."
-    }
+    ]
 }
