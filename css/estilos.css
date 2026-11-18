@@ -9,6 +9,7 @@
     --brand-hover: #1e40af;
     --accent-focus: #01547E;
     --accent-soft: #4D596B;
+    --accent-marked: #FFE58F;
     --text-primary: #1e293b;
     --text-secondary: #475569;
     --text-muted: #444F5F;
@@ -2065,7 +2066,7 @@ dialog > output > ol > li > article p {
 
 /* Resaltado de coincidencias */
 dialog mark {
-    background-color: var(--accent-soft);
+    background-color: var(--accent-marked);
     color: var(--brand-deep);
     font-weight: 700;
     padding: 0 0.2143em;
