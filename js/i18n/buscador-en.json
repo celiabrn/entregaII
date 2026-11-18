@@ -1,0 +1,193 @@
+{
+    "secciones": [
+        {
+            "prefijo": "index.interests",
+            "url": "index.html#intereses",
+            "categoria": "Home",
+            "titulo": "Pages and sections of interest"
+        },
+        {
+            "prefijo": "index",
+            "url": "index.html#main-content",
+            "categoria": "Home",
+            "titulo": "Home · Welcome and introduction"
+        },
+        {
+            "prefijo": "about.personal",
+            "url": "sobre-mi.html#personal",
+            "categoria": "About me",
+            "titulo": "Personal life and biography"
+        },
+        {
+            "prefijo": "about.pro",
+            "url": "sobre-mi.html#profesional",
+            "categoria": "About me",
+            "titulo": "Professional life and contact"
+        },
+        {
+            "prefijo": "about.cv",
+            "url": "sobre-mi.html#presentacion",
+            "categoria": "About me",
+            "titulo": "Curriculum Vitae (PDF)"
+        },
+        {
+            "prefijo": "about.education",
+            "url": "sobre-mi.html#formacion",
+            "categoria": "About me",
+            "titulo": "Academic education and degrees"
+        },
+        {
+            "prefijo": "about.skills",
+            "url": "sobre-mi.html#competencias",
+            "categoria": "About me",
+            "titulo": "Technical skills and projects"
+        },
+        {
+            "prefijo": "about.endorsements",
+            "url": "sobre-mi.html#avales",
+            "categoria": "About me",
+            "titulo": "Endorsements and references (Thesis)"
+        },
+        {
+            "prefijo": "about",
+            "url": "sobre-mi.html#presentacion",
+            "categoria": "About me",
+            "titulo": "About me"
+        },
+        {
+            "prefijo": "hobbies.coraline",
+            "url": "aficiones.html#peliculas",
+            "categoria": "My hobbies",
+            "titulo": "Movies · Coraline"
+        },
+        {
+            "prefijo": "hobbies.wha",
+            "url": "aficiones.html#peliculas",
+            "categoria": "My hobbies",
+            "titulo": "Manga & animation · Witch Hat Atelier"
+        },
+        {
+            "prefijo": "hobbies.movies",
+            "url": "aficiones.html#peliculas",
+            "categoria": "My hobbies",
+            "titulo": "Movies and series"
+        },
+        {
+            "prefijo": "hobbies.animals",
+            "url": "aficiones.html#animales",
+            "categoria": "My hobbies",
+            "titulo": "Animals and pets · Otto & Orión"
+        },
+        {
+            "prefijo": "hobbies.botany",
+            "url": "aficiones.html#botanica",
+            "categoria": "My hobbies",
+            "titulo": "Botany · Atlantic Botanical Garden of Gijón"
+        },
+        {
+            "prefijo": "hobbies",
+            "url": "aficiones.html",
+            "categoria": "My hobbies",
+            "titulo": "My hobbies"
+        },
+        {
+            "prefijo": "travels.trip1",
+            "url": "viajes.html#sanabria",
+            "categoria": "My travels",
+            "titulo": "Trip to Sanabria (Zamora)"
+        },
+        {
+            "prefijo": "travels.trip2",
+            "url": "viajes.html#alemania",
+            "categoria": "My travels",
+            "titulo": "Trip to Germany (Bavaria & Black Forest)"
+        },
+        {
+            "prefijo": "travels.trip3",
+            "url": "viajes.html#estados-unidos",
+            "categoria": "My travels",
+            "titulo": "Trip to United States (Chicago)"
+        },
+        {
+            "prefijo": "travels",
+            "url": "viajes.html",
+            "categoria": "My travels",
+            "titulo": "My travels"
+        },
+        {
+            "prefijo": "music.saurom",
+            "url": "musica.html#saurom",
+            "categoria": "My music",
+            "titulo": "Music band · Saurom (Folk metal)"
+        },
+        {
+            "prefijo": "music.binary",
+            "url": "musica.html#the-binary",
+            "categoria": "My music",
+            "titulo": "Music band · The Binary (J-Pop / J-Rock)"
+        },
+        {
+            "prefijo": "music",
+            "url": "musica.html",
+            "categoria": "My music",
+            "titulo": "My favorite music"
+        },
+        {
+            "prefijo": "help.navGuide",
+            "url": "ayuda.html#guia",
+            "categoria": "Help",
+            "titulo": "Help · Navigation guide"
+        },
+        {
+            "prefijo": "help.faq",
+            "url": "ayuda.html#faq",
+            "categoria": "Help",
+            "titulo": "Help · Frequently Asked Questions"
+        },
+        {
+            "prefijo": "help",
+            "url": "ayuda.html",
+            "categoria": "Help",
+            "titulo": "Help & navigation guide"
+        }
+    ],
+    "sugerencias": [
+        {
+            "label": "Endorsements & thesis",
+            "query": "Endorsements"
+        },
+        {
+            "label": "Coraline",
+            "query": "Coraline"
+        },
+        {
+            "label": "Otto & Orión",
+            "query": "Otto"
+        },
+        {
+            "label": "Botanical Garden",
+            "query": "Botanical"
+        },
+        {
+            "label": "Sanabria",
+            "query": "Sanabria"
+        },
+        {
+            "label": "Germany",
+            "query": "Germany"
+        },
+        {
+            "label": "Saurom",
+            "query": "Saurom"
+        },
+        {
+            "label": "Resume PDF",
+            "query": "Resume"
+        }
+    ],
+    "ui": {
+        "tituloSugerencias": "Quick suggestions:",
+        "sinResultados": "No results found for",
+        "consejoSinResultados": "Try searching for other words like movies, travels, music, botany or education."
+    }
+}

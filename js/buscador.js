@@ -1,6 +1,6 @@
 /**
  * Buscador dinámico de contenidos del sitio web basado en el diccionario i18n
- * - No requiere índice manual: lee directamente las claves y textos de es.json / en.json.
+ * - Carga los mapeos de secciones, sugerencias y textos de interfaz desde archivos JSON externos (js/i18n/buscador-{idioma}.json).
  * - Libre de <div> y clases CSS genéricas.
  * - Genera fragmentos contextuales dinámicos con resaltado <mark>.
  * - Soporte bilingüe y navegación por teclado (WCAG).
@@ -8,182 +8,7 @@
 (function() {
     'use strict';
 
-    // Mapeo semántico de prefijos de traducción a destinos y secciones de la web
-    const mapaSecciones = [
-        // INICIO
-        {
-            prefijo: 'index.interests',
-            url: 'index.html#intereses',
-            categoria: { es: 'Inicio', en: 'Home' },
-            titulo: { es: 'Páginas y secciones de interés', en: 'Pages and sections of interest' }
-        },
-        {
-            prefijo: 'index',
-            url: 'index.html#main-content',
-            categoria: { es: 'Inicio', en: 'Home' },
-            titulo: { es: 'Inicio · Bienvenida y presentación', en: 'Home · Welcome and introduction' }
-        },
-
-        // SOBRE MÍ
-        {
-            prefijo: 'about.personal',
-            url: 'sobre-mi.html#personal',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Vida personal y biografía', en: 'Personal life and biography' }
-        },
-        {
-            prefijo: 'about.pro',
-            url: 'sobre-mi.html#profesional',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Vida profesional y contacto', en: 'Professional life and contact' }
-        },
-        {
-            prefijo: 'about.cv',
-            url: 'sobre-mi.html#presentacion',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Currículum Vitae (PDF)', en: 'Curriculum Vitae (PDF)' }
-        },
-        {
-            prefijo: 'about.education',
-            url: 'sobre-mi.html#formacion',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Formación académica y titulaciones', en: 'Academic education and degrees' }
-        },
-        {
-            prefijo: 'about.skills',
-            url: 'sobre-mi.html#competencias',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Competencias técnicas y proyectos', en: 'Technical skills and projects' }
-        },
-        {
-            prefijo: 'about.endorsements',
-            url: 'sobre-mi.html#avales',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Avales y referencias (TFG)', en: 'Endorsements and references (Thesis)' }
-        },
-        {
-            prefijo: 'about',
-            url: 'sobre-mi.html#presentacion',
-            categoria: { es: 'Sobre mí', en: 'About me' },
-            titulo: { es: 'Sobre mí', en: 'About me' }
-        },
-
-        // AFICIONES
-        {
-            prefijo: 'hobbies.coraline',
-            url: 'aficiones.html#peliculas',
-            categoria: { es: 'Mis aficiones', en: 'My hobbies' },
-            titulo: { es: 'Películas · Los mundos de Coraline', en: 'Movies · Coraline' }
-        },
-        {
-            prefijo: 'hobbies.wha',
-            url: 'aficiones.html#peliculas',
-            categoria: { es: 'Mis aficiones', en: 'My hobbies' },
-            titulo: { es: 'Manga y animación · Witch Hat Atelier', en: 'Manga & animation · Witch Hat Atelier' }
-        },
-        {
-            prefijo: 'hobbies.movies',
-            url: 'aficiones.html#peliculas',
-            categoria: { es: 'Mis aficiones', en: 'My hobbies' },
-            titulo: { es: 'Películas y series', en: 'Movies and series' }
-        },
-        {
-            prefijo: 'hobbies.animals',
-            url: 'aficiones.html#animales',
-            categoria: { es: 'Mis aficiones', en: 'My hobbies' },
-            titulo: { es: 'Animales y mascotas · Otto y Orión', en: 'Animals and pets · Otto & Orión' }
-        },
-        {
-            prefijo: 'hobbies.botany',
-            url: 'aficiones.html#botanica',
-            categoria: { es: 'Mis aficiones', en: 'My hobbies' },
-            titulo: { es: 'Botánica · Jardín Botánico Atlántico de Gijón', en: 'Botany · Atlantic Botanical Garden of Gijón' }
-        },
-        {
-            prefijo: 'hobbies',
-            url: 'aficiones.html',
-            categoria: { es: 'Mis aficiones', en: 'My hobbies' },
-            titulo: { es: 'Mis aficiones', en: 'My hobbies' }
-        },
-
-        // VIAJES
-        {
-            prefijo: 'travels.trip1',
-            url: 'viajes.html#sanabria',
-            categoria: { es: 'Mis viajes', en: 'My travels' },
-            titulo: { es: 'Viaje a Sanabria (Zamora)', en: 'Trip to Sanabria (Zamora)' }
-        },
-        {
-            prefijo: 'travels.trip2',
-            url: 'viajes.html#alemania',
-            categoria: { es: 'Mis viajes', en: 'My travels' },
-            titulo: { es: 'Viaje a Alemania (Baviera y Selva Negra)', en: 'Trip to Germany (Bavaria & Black Forest)' }
-        },
-        {
-            prefijo: 'travels.trip3',
-            url: 'viajes.html#estados-unidos',
-            categoria: { es: 'Mis viajes', en: 'My travels' },
-            titulo: { es: 'Viaje a Estados Unidos (Chicago)', en: 'Trip to United States (Chicago)' }
-        },
-        {
-            prefijo: 'travels',
-            url: 'viajes.html',
-            categoria: { es: 'Mis viajes', en: 'My travels' },
-            titulo: { es: 'Mis viajes', en: 'My travels' }
-        },
-
-        // MÚSICA
-        {
-            prefijo: 'music.saurom',
-            url: 'musica.html#saurom',
-            categoria: { es: 'Mi música', en: 'My music' },
-            titulo: { es: 'Banda de música · Saurom (Folk metal)', en: 'Music band · Saurom (Folk metal)' }
-        },
-        {
-            prefijo: 'music.binary',
-            url: 'musica.html#the-binary',
-            categoria: { es: 'Mi música', en: 'My music' },
-            titulo: { es: 'Banda de música · The Binary (J-Pop / J-Rock)', en: 'Music band · The Binary (J-Pop / J-Rock)' }
-        },
-        {
-            prefijo: 'music',
-            url: 'musica.html',
-            categoria: { es: 'Mi música', en: 'My music' },
-            titulo: { es: 'Mi música favorita', en: 'My favorite music' }
-        },
-
-        // AYUDA
-        {
-            prefijo: 'help.navGuide',
-            url: 'ayuda.html#guia',
-            categoria: { es: 'Ayuda', en: 'Help' },
-            titulo: { es: 'Ayuda · Guía de navegación', en: 'Help · Navigation guide' }
-        },
-        {
-            prefijo: 'help.faq',
-            url: 'ayuda.html#faq',
-            categoria: { es: 'Ayuda', en: 'Help' },
-            titulo: { es: 'Ayuda · Preguntas frecuentes (FAQ)', en: 'Help · Frequently Asked Questions' }
-        },
-        {
-            prefijo: 'help',
-            url: 'ayuda.html',
-            categoria: { es: 'Ayuda', en: 'Help' },
-            titulo: { es: 'Ayuda y guía de uso', en: 'Help & navigation guide' }
-        }
-    ];
-
-    // Sugerencias rápidas para el estado inicial
-    const sugerenciasIniciales = [
-        { label: { es: "Avales y referencias", en: "Endorsements & thesis" }, query: "avales" },
-        { label: { es: "Coraline", en: "Coraline" }, query: "Coraline" },
-        { label: { es: "Otto y Orión", en: "Otto & Orión" }, query: "Otto" },
-        { label: { es: "Jardín Botánico", en: "Botanical Garden" }, query: "Botánico" },
-        { label: { es: "Sanabria", en: "Sanabria" }, query: "Sanabria" },
-        { label: { es: "Alemania", en: "Germany" }, query: "Alemania" },
-        { label: { es: "Saurom", en: "Saurom" }, query: "Saurom" },
-        { label: { es: "Currículum PDF", en: "Resume PDF" }, query: "Currículum" }
-    ];
+    const cacheConfiguracion = {};
 
     function obtenerIdiomaActual() {
         return localStorage.getItem('idioma_pref') || document.documentElement.lang || 'es';
@@ -213,7 +38,6 @@
             .replace(/'/g, '&#039;');
     }
 
-    // Comprueba si una clave del diccionario pertenece al contenido buscable
     function esClaveContenido(clave) {
         return !clave.startsWith('skip.') &&
                !clave.startsWith('lang.') &&
@@ -226,21 +50,37 @@
                !clave.endsWith('.caption');
     }
 
-    // Asocia una clave de traducción con su destino semántico
-    function obtenerSeccionParaClave(clave, idioma) {
-        for (const sec of mapaSecciones) {
+    async function obtenerConfiguracionBuscador(idioma) {
+        if (cacheConfiguracion[idioma]) {
+            return cacheConfiguracion[idioma];
+        }
+        try {
+            const resp = await fetch(`js/i18n/buscador-${idioma}.json`);
+            if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+            const data = await resp.json();
+            cacheConfiguracion[idioma] = data;
+            return data;
+        } catch (err) {
+            if (idioma !== 'es') {
+                return obtenerConfiguracionBuscador('es');
+            }
+            throw err;
+        }
+    }
+
+    function obtenerSeccionParaClave(clave, secciones) {
+        for (const sec of secciones) {
             if (clave === sec.prefijo || clave.startsWith(sec.prefijo + '.')) {
                 return {
                     url: sec.url,
-                    categoria: sec.categoria[idioma] || sec.categoria.es,
-                    titulo: sec.titulo[idioma] || sec.titulo.es
+                    categoria: sec.categoria,
+                    titulo: sec.titulo
                 };
             }
         }
         return null;
     }
 
-    // Extrae un fragmento de texto alrededor de la coincidencia y resalta los términos con <mark>
     function extraerSnippetConResaltado(textoOriginal, tokens) {
         const textoPlano = limpiarHtml(textoOriginal);
         if (!textoPlano) return '';
@@ -264,7 +104,6 @@
             textoRecortado = textoPlano.length > 120 ? textoPlano.slice(0, 115) + ' …' : textoPlano;
         }
 
-        // Resaltar términos encontrados
         const terminosNormalizados = tokens.filter(Boolean);
         if (terminosNormalizados.length === 0) return escaparHtml(textoRecortado);
 
@@ -341,19 +180,26 @@
             indiceSeleccionado = -1;
         }
 
-        function mostrarSugerencias() {
+        async function mostrarSugerencias() {
             if (!output) return;
             const idioma = obtenerIdiomaActual();
-            const tituloSugerencias = idioma === 'en' ? 'Quick suggestions:' : 'Sugerencias habituales:';
 
-            const botonesSugerencias = sugerenciasIniciales.map(s => {
-                const label = s.label[idioma] || s.label.es;
-                return `<li><button type="button" data-query="${escaparHtml(s.query)}"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> ${escaparHtml(label)}</button></li>`;
+            let config;
+            try {
+                config = await obtenerConfiguracionBuscador(idioma);
+            } catch (err) {
+                console.error('Error al cargar configuración del buscador:', err);
+                return;
+            }
+
+            const tituloSugerencias = config.ui.tituloSugerencias;
+            const botonesSugerencias = config.sugerencias.map(s => {
+                return `<li><button type="button" data-query="${escaparHtml(s.query)}"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> ${escaparHtml(s.label)}</button></li>`;
             }).join('');
 
             output.innerHTML = `
-                <nav aria-label="${tituloSugerencias}">
-                    <p>${tituloSugerencias}</p>
+                <nav aria-label="${escaparHtml(tituloSugerencias)}">
+                    <p>${escaparHtml(tituloSugerencias)}</p>
                     <ul>${botonesSugerencias}</ul>
                 </nav>
             `;
@@ -390,20 +236,23 @@
             }
 
             let diccionario;
+            let config;
             try {
-                diccionario = await obtenerDiccionarioActivo(idioma);
+                [diccionario, config] = await Promise.all([
+                    obtenerDiccionarioActivo(idioma),
+                    obtenerConfiguracionBuscador(idioma)
+                ]);
             } catch (err) {
-                console.error('Error al cargar diccionario para búsqueda:', err);
+                console.error('Error al cargar recursos para búsqueda:', err);
                 return;
             }
 
-            // Agrupar coincidencias por sección destino (URL) para evitar duplicados
             const mapaResultados = new Map();
 
             for (const [clave, valor] of Object.entries(diccionario)) {
                 if (!esClaveContenido(clave)) continue;
 
-                const seccion = obtenerSeccionParaClave(clave, idioma);
+                const seccion = obtenerSeccionParaClave(clave, config.secciones);
                 if (!seccion) continue;
 
                 const textoPlano = limpiarHtml(valor);
@@ -445,7 +294,6 @@
                     } else {
                         const actual = mapaResultados.get(seccion.url);
                         actual.puntuacion += puntuacionClave;
-                        // Priorizar texto descriptivo si contiene los tokens
                         if (textoNorm.includes(tokens[0]) && (!actual.mejorTexto || actual.mejorTexto.length < textoPlano.length)) {
                             actual.mejorTexto = textoPlano;
                         }
@@ -457,18 +305,11 @@
             resultados.sort((a, b) => b.puntuacion - a.puntuacion);
 
             if (resultados.length === 0) {
-                const textoNoResults = idioma === 'en'
-                    ? 'No results found for'
-                    : 'No se encontraron resultados para';
-                const consejoNoResults = idioma === 'en'
-                    ? 'Try searching for other words like movies, travels, music, botany or education.'
-                    : 'Prueba a buscar otras palabras como películas, viajes, música, botánica o formación.';
-
                 output.innerHTML = `
                     <p role="status">
                         <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                        <strong>${textoNoResults} "<mark>${escaparHtml(query)}</mark>"</strong>
-                        <span>${consejoNoResults}</span>
+                        <strong>${escaparHtml(config.ui.sinResultados)} "<mark>${escaparHtml(query)}</mark>"</strong>
+                        <span>${escaparHtml(config.ui.consejoSinResultados)}</span>
                     </p>
                 `;
             } else {
@@ -511,7 +352,6 @@
             });
         }
 
-        // Navegación por teclado dentro del modal
         dialog.addEventListener('keydown', (e) => {
             const enlaces = output ? Array.from(output.querySelectorAll('ol > li > article > a')) : [];
 
@@ -566,7 +406,6 @@
             });
         }
 
-        // Clic en el backdrop cierra el diálogo
         dialog.addEventListener('click', (e) => {
             const rect = dialog.getBoundingClientRect();
             const clickFuera = (
@@ -591,7 +430,6 @@
             botonAbrir.addEventListener('click', abrirModal);
         }
 
-        // Atajo global: '/' o 'Ctrl+K' / 'Cmd+K'
         document.addEventListener('keydown', (e) => {
             const target = e.target;
             const esElementoTexto = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
@@ -604,7 +442,6 @@
             }
         });
 
-        // Actualizar en tiempo real si se cambia el idioma
         window.addEventListener('idiomacambiado', () => {
             if (dialog.hasAttribute('open')) {
                 if (input && input.value.trim()) {
